@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_backGroundColor"
+    android:orientation="vertical"
+    >
+
+
+    <include
+        android:id="@+id/includeLay_signin"
+        layout="@layout/app_header_view_main"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingLeft="@dimen/padding_layout_bv_txt_address_favorite"
+        android:paddingRight="@dimen/padding_layout_bv_txt_address_favorite"
+        android:layout_marginTop="@dimen/margin_bv_header"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="@dimen/img_hight_width"
+                android:layout_height="@dimen/img_hight_width"
+                android:background="@color/dark_green"
+                android:src="@drawable/ic_invite_by_adrs_book"
+                android:padding="@dimen/ic_adrs_img_padding"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/component_hight"
+                android:gravity="center"
+                android:text="@string/invite_address_book"
+                android:textColor="@color/home_btn_txt_color"
+                android:textSize="@dimen/text_invite_doer"
+                android:background="@color/light_green"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_bv_txt_address_favorite"
+            >
+            <ImageView
+                android:layout_width="@dimen/img_hight_width"
+                android:layout_height="@dimen/img_hight_width"
+                android:background="@color/create_post_pinc_dark"
+                android:src="@drawable/ic_invite_by_favorite"
+                android:padding="@dimen/ic_adrs_img_padding"
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/component_hight"
+                android:gravity="center"
+                android:text="@string/invite_favorite_list"
+                android:textColor="@color/home_btn_txt_color"
+                android:textSize="@dimen/text_invite_doer"
+                android:background="@color/peach_color"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_hight"
+        android:background="@color/postTxtContainer_txt_color"
+        android:layout_marginTop="@dimen/margin_bv_txt_address_favorite"
+        android:layout_marginLeft="@dimen/margin_view_left_right"
+        android:layout_marginRight="@dimen/margin_view_left_right"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="invitee doer"
+        android:textColor="@color/home_btn_txt_color"
+        android:gravity="center"
+        android:textSize="@dimen/text_invite_doer"
+        android:padding="@dimen/invite_doer_padding"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/listView_invite"
+            android:layout_above="@+id/rl_apply_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+
+        <RelativeLayout
+            android:id="@+id/rl_apply_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="@dimen/rl_apply_cancel_padding"
+            android:paddingRight="@dimen/rl_apply_cancel_padding"
+            >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="@dimen/component_hight"
+               android:text="apply"
+               android:gravity="center"
+               android:textSize="@dimen/text_apply_cancel_size"
+               android:layout_alignParentLeft="true"
+               android:textColor="@color/home_btn_txt_color"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/component_hight"
+                android:text="cancel"
+                android:gravity="center"
+                android:textSize="@dimen/text_apply_cancel_size"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/home_btn_txt_color"
+                />
+
+            </RelativeLayout>
+        </RelativeLayout>
+    
+</LinearLayout>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_backGroundColor"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/relHeaderInAll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:background="@color/app_backGroundColor"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/imgBackInAll"
+            android:layout_width="@dimen/header_height"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_button_back"
+            android:clickable="true"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/btn_padding"
+            android:src="@drawable/spl_ic_back_w_l" />
+
+        <TextView
+            android:id="@+id/txtTitleInAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Invite"
+            android:layout_margin="@dimen/btn_padding_5"
+            android:textColor="@android:color/white"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="@dimen/t_headertextsize" />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingLeft="@dimen/margin_bv_header"
+        android:paddingRight="@dimen/margin_bv_header"
+        android:layout_marginTop="@dimen/margin_bv_header">
+
+        <LinearLayout
+            android:id="@+id/linSelectContactsNative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_button_back"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/img_hight_width"
+                android:layout_height="@dimen/img_hight_width"
+                android:background="@color/dark_green"
+                android:src="@drawable/ic_invite_by_adrs_book"
+                android:padding="@dimen/ic_adrs_img_padding" />
+
+            <TextView
+                android:id="@+id/txtSelectContactsNative"
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/component_hight"
+                android:gravity="center"
+                android:text="@string/invite_address_book"
+                android:textColor="@color/home_btn_txt_color"
+                android:textSize="@dimen/text_invite_doer"
+                android:background="@color/light_green" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearSelectContactsFav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/selector_button_back"
+            android:layout_marginTop="@dimen/margin_bv_txt_address_favorite">
+
+            <ImageView
+                android:layout_width="@dimen/img_hight_width"
+                android:layout_height="@dimen/img_hight_width"
+                android:background="@color/create_post_pinc_dark"
+                android:src="@drawable/ic_invite_by_favorite"
+                android:padding="@dimen/ic_adrs_img_padding"
+
+                />
+
+            <TextView
+                android:id="@+id/txtSelectContactsFav"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/component_hight"
+                android:gravity="center"
+                android:text="@string/invite_favorite_list"
+                android:textColor="@color/home_btn_txt_color"
+                android:textSize="@dimen/text_invite_doer"
+                android:background="@color/peach_color" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/view_hight"
+        android:background="@color/postTxtContainer_txt_color"
+        android:layout_marginTop="@dimen/margin_bv_txt_address_favorite"
+        android:layout_marginLeft="@dimen/margin_view_left_right"
+        android:layout_marginRight="@dimen/margin_view_left_right" />
+
+    <TextView
+        android:id="@+id/txtInviteeList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Invitee_list"
+        android:textColor="@color/home_btn_txt_color"
+        android:gravity="center"
+        android:textSize="@dimen/text_invite_doer"
+        android:padding="@dimen/invite_doer_padding"
+        android:layout_marginBottom="@dimen/btn_padding" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <ListView
+            android:id="@+id/lvInvitee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="#00000000"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="@dimen/deviderHeigh_my_share"
+            android:fadeScrollbars="true"
+            android:scrollingCache="false"
+            android:smoothScrollbar="true"
+            android:listSelector="@color/trans_color"
+            android:layout_above="@+id/relApply"></ListView>
+
+        <RelativeLayout
+            android:id="@+id/relApply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="@dimen/rl_apply_cancel_padding"
+            android:clickable="true"
+            android:paddingRight="@dimen/rl_apply_cancel_padding"
+
+            >
+
+            <TextView
+                android:id="@+id/txtApply"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/component_hight"
+                android:text="@string/apply"
+                android:gravity="center"
+                android:padding="@dimen/btn_padding"
+                android:background="@drawable/selector_button_back"
+                android:textSize="@dimen/text_apply_cancel_size"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/home_btn_txt_color" />
+
+            <TextView
+                android:id="@+id/txtCancelInAll"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/component_hight"
+                android:text="@string/Cancel"
+                android:background="@drawable/selector_button_back"
+                android:gravity="center"
+                android:padding="@dimen/btn_padding"
+                android:textSize="@dimen/text_apply_cancel_size"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/home_btn_txt_color" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

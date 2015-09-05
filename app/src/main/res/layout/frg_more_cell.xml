@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/home_btn_txt_color"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/more_cell_h">
+
+        <ImageView
+            android:id="@+id/imgCommon"
+            android:layout_width="@dimen/img_w_h_more"
+            android:layout_height="@dimen/img_w_h_more"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/app_name"
+            android:clickable="false"
+            android:focusable="false"
+            android:src="@drawable/ic_info" />
+        <TextView
+            android:id="@+id/txtCommon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/btn_padding_5"
+            android:layout_marginRight="@dimen/btn_padding_5"
+            android:textSize="@dimen/postTxtContainer_txt_size"
+            android:padding="@dimen/btn_padding_5"
+            android:textColor="@color/postTxtContainer_txt_color"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnGoToNext"
+        style="@style/font_login_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/EditText_h"
+        android:background="@color/create_post_pinc"
+        android:drawableRight="@drawable/spl_ic_forward_w"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:focusable="false"
+        android:text="@string/join_now"
+        android:clickable="false"
+        android:textColor="@color/home_btn_txt_color" />
+</LinearLayout>

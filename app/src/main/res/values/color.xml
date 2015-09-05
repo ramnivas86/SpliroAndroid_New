@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+ <!--  set color for Login Screen -->
+ <color name="forgot_h_line_color">#c0c0c0</color>   
+ <color name="app_backGroundColor">#322a3a</color> 
+ <color name="create_post_pinc">#f74656</color>
+ <color name="create_post_pinc_dark">#d63847</color>
+ <color name="postTxtContainer_txt_color">#000000</color>
+  <color name="postLocContainerBackG">#ffffff</color>
+<color name="fb_color_light">#3b5999</color>
+    <color name="fb_color_dark">#324e8a</color>
+
+    <!--    set color for Home Screen -->
+    <color name="home_btn_txt_color">#ffffff</color>
+    <color name="eTxtColor">#000000</color>
+    <!--    set color for Share Screen -->
+<color name="peach_color">#f74656</color>
+    <color name="gray_light">#f4f4f4</color>
+    <color name="gray_dark">#969696</color>
+<!--set color to Tab bar -->
+    <color name="ColorPrimary">#c0c0c0</color>
+    <color name="ColorPrimaryDark">#00695C</color>
+    <color name="tabsScrollColor">#5a5a5a</color>
+    <color name="dark_green">#4bb06c</color>
+    <color name="light_green">#5ec687</color>
+
+    <!--set color to dateTimePickerDialog-->
+    <!-- Transparent Text Color -->
+    <color name="trans_color">#00000000</color>
+    <!--<color name="ed_color_orange_light">#f2a83d</color>-->
+    <color name="blue_dark">#2980b9</color>
+    <color name="red">#e74c3c</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#000000</color>
+    <color name="red_dark">#c0392b</color>
+    <color name="ed_color_orange_dark">#e95321</color>
+    <color name="green">#48bd33</color>
+    <color name="dark_blue">#233076</color>
+    <color name="sky_blue">#6680cbc4</color>
+</resources>

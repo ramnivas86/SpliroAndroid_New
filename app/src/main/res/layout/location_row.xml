@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="@dimen/header_width"
+        android:layout_height="@dimen/header_height"
+
+        android:background="@color/peach_color">
+        <ImageView
+            android:layout_width="@dimen/loc_logo_h"
+            android:layout_height="@dimen/loc_logo_h"
+            android:src="@drawable/spl_ic_location"
+            android:layout_centerInParent="true"
+            android:tint="@color/home_btn_txt_color" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="@dimen/header_height"
+        android:layout_weight="65">
+
+        <EditText
+            android:id="@+id/eTxtLocationR"
+            style="@style/font_login_text"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/EditText_h"
+            android:background="@android:color/white"
+            android:gravity="center|left"
+            android:hint="@string/enter_location"
+            android:padding="@dimen/eTextLEmail_padding"
+            android:singleLine="true"
+            android:textColor="@color/eTxtColor" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/header_height"
+        android:layout_height="@dimen/header_height"
+        android:gravity="center"
+       >
+
+        <ImageView
+            android:id="@+id/img_add_loc"
+            android:layout_width="@dimen/header_height"
+            android:layout_height="@dimen/header_height"
+
+            android:padding="@dimen/btn_padding"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

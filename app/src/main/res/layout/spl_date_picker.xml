@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="220dp"
+    android:layout_gravity="center"
+    android:background="@color/black"
+    android:orientation="vertical"
+    android:weightSum="1" >
+
+    <TextView
+        android:id="@+id/txtHeaderDPD"
+        style="@style/font_header_text"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/peach_color"
+        android:gravity="center"
+        android:text="@string/Select_Date_And_Time" />
+
+    <LinearLayout
+        android:id="@+id/llDateSliderContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/black"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llButton"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/btnCancel"
+            style="@style/font_header_text"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_login_selector"
+            android:text="@string/Cancel" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/btnSetDate"
+            style="@style/font_header_text"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_login_selector"
+            android:text="@string/Set" />
+    </LinearLayout>
+
+</LinearLayout>

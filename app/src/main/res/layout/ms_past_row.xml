@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:background="@color/peach_color"
+        android:paddingBottom="@dimen/btn_padding"
+        android:paddingLeft="@dimen/btn_padding"
+        android:paddingTop="@dimen/btn_padding">
+
+        <RelativeLayout
+            android:id="@+id/cImgSharesContainer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/shared_img_h">
+
+            <arya.spliro.custom.CircularImageView
+                android:id="@+id/imgCreatorMyShares"
+                android:layout_width="@dimen/invitee_img_h"
+                android:layout_height="@dimen/invitee_img_h"
+                android:layout_alignParentLeft="true"/>
+
+            <LinearLayout
+                android:id="@+id/shareInfoContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgCreatorMyShares"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/signup_View_w"
+                android:paddingRight="@dimen/signup_View_w">
+
+                <TextView
+                    android:id="@+id/txtSharesName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/you_are_invited"
+                    android:textColor="@color/postLocContainerBackG"
+                    android:textSize="@dimen/spl_txt_tab_size" />
+
+                <RatingBar
+                    android:id="@+id/rtShareOwner"
+                    style="@style/CustomRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtSharesName"
+                    android:layout_gravity="center|left"
+                    android:layout_marginTop="@dimen/signup_View_w"
+                    android:layout_toRightOf="@+id/cImgShares"
+                    android:focusable="false"
+                    android:isIndicator="true"
+                    android:numStars="5"
+                    android:stepSize="0.01" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cImgItemShareContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/c_txtview_dimen"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/cImgSharesContainer">
+            <arya.spliro.custom.CircularImageView
+                android:id="@+id/cImgItemShare"
+                android:layout_width="@dimen/c_txtview_dimen"
+                android:layout_height="@dimen/c_txtview_dimen"
+                android:layout_centerInParent="true"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"/>
+
+        </RelativeLayout>
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/cImgItemShareContainer"
+    android:padding="@dimen/view_image_padding"
+    android:gravity="center"
+    android:layout_centerInParent="true">
+
+    <TextView
+        android:id="@+id/txtRequestType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/you_are_invited"
+        android:textColor="@color/postLocContainerBackG"
+        android:textSize="@dimen/add_fav_txt_size_my_share" />
+    </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:padding="@dimen/btn_padding"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/relTxtSPTimeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:paddingBottom="@dimen/btn_padding_5">
+
+            <TextView
+                android:id="@+id/txtAddFavMyShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/imgFavMShare"
+                android:text="@string/add_to_favorites"
+                android:textColor="@color/gray_dark"
+                android:textSize="@dimen/add_fav_txt_size_my_share" />
+
+            <ImageView
+                android:id="@+id/imgFavMShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/spl_ic_favorites_d" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relTxtSPTimeContainer"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtTitleMyshares"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_to_favorites"
+                android:paddingBottom="@dimen/btn_padding_5"
+                android:textColor="@color/peach_color"
+                android:singleLine="true"
+                android:textSize="@dimen/t_headertextsize" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/relTxtSPTimeContainer"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtTimeLeftMShare"
+                        android:layout_width="@dimen/c_txtview_dimen"
+                        android:layout_height="@dimen/c_txtview_dimen"
+                        android:background="@drawable/circular_shape_text"
+                        android:text="2hr 32min"
+                        android:padding="@dimen/btn_padding_5"
+                        android:textColor="@color/eTxtColor"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_size_for_distance_time_left" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtDistanceLeft"
+                        android:layout_width="@dimen/c_txtview_dimen"
+                        android:layout_height="@dimen/c_txtview_dimen"
+                        android:background="@drawable/circular_shape_text"
+                        android:text="0mi away"
+                        android:padding="@dimen/btn_padding_5"
+                        android:textColor="@color/eTxtColor"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_size_for_distance_time_left" />
+                </LinearLayout> <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtNoPplJoinedMShare"
+                    android:layout_width="@dimen/c_txtview_dimen"
+                    android:layout_height="@dimen/c_txtview_dimen"
+                    android:background="@drawable/circular_shape_text"
+                    android:text="0\npeople\njoined"
+                    android:padding="@dimen/btn_padding_5"
+
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_size_for_distance_time_left" />
+            </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

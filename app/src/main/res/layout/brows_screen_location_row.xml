@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/img_hight_width"
+            android:layout_height="@dimen/img_hight_width"
+            android:background="@color/peach_color"
+            android:src="@drawable/location_ic"
+            android:padding="@dimen/ic_adrs_img_padding"
+            />
+        <TextView
+            android:id="@+id/txt_loc_address"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/component_hight"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/postTxtContainer_txt_color"
+            android:textSize="@dimen/text_invite_doer"
+            android:background="@android:color/white"/>
+
+
+</LinearLayout>

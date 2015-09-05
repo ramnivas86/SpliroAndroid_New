@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="arya.spliro.viewController.MoreActivity"
+    android:background="@color/app_backGroundColor"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/txtTitleAppH"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:text="@string/more"
+        android:layout_margin="@dimen/btn_padding_5"
+        android:textColor="@android:color/white"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textSize="@dimen/t_headertextsize" />
+    <GridView
+        android:id="@+id/gvMore"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:numColumns="2"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:listSelector="@android:color/transparent"
+        android:gravity="center"
+        ></GridView>
+</LinearLayout>

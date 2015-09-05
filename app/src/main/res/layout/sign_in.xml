@@ -1,0 +1,156 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+     >
+    <ImageView
+        android:id="@+id/imgBackS"
+        android:layout_width="@dimen/header_height"
+        android:layout_height="@dimen/header_height"
+        android:background="@drawable/selector_button_back"
+        android:clickable="true"
+        android:layout_alignParentLeft="true"
+        android:padding="@dimen/btn_padding"
+        android:src="@drawable/spl_ic_back_w_l" />
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/imgBackS"
+    android:layout_centerInParent="true"
+    android:layout_marginTop="@dimen/logo_maring_minus_10"
+    android:fillViewport="true"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="@dimen/activity_layout_padding"
+        android:paddingRight="@dimen/activity_layout_padding"
+        android:paddingBottom="@dimen/activity_layout_padding"
+       >
+        <ImageView
+            android:id="@+id/imgLoginLogo"
+            android:layout_width="@dimen/logo_w"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:layout_centerHorizontal="true"
+
+            android:layout_marginTop="@dimen/logo_maring_minus_10"
+            android:src="@drawable/logo"
+            />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+android:layout_below="@+id/imgLoginLogo"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/linearLoginWF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_fb_selector"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/login_layOutPadding"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="@dimen/EditText_h"
+            android:layout_height="@dimen/EditText_h"
+            android:padding="@dimen/fb_img_padding"
+            android:src="@drawable/ic_fb" />
+
+        <TextView
+
+            style="@style/font_login_text"
+            android:layout_width="3dp"
+            android:layout_height="@dimen/EditText_h"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+
+            android:background="@color/fb_color_dark"
+             />
+
+        <TextView
+            android:id="@+id/txtSignInWithFb"
+            style="@style/font_login_text"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/EditText_h"
+            android:gravity="center"
+            android:textColor="@color/home_btn_txt_color"
+android:layout_weight="1"
+            android:text="@string/log_in_with_fb" />
+        </LinearLayout>
+
+
+    <TextView
+android:id="@+id/txtOr"
+        style="@style/font_login_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/LogoMargin"
+        android:layout_marginBottom="@dimen/LogoMargin"
+        android:gravity="center"
+        android:text="@string/or"
+        android:textStyle="bold"
+        android:textColor="@color/home_btn_txt_color"
+        android:textSize="@dimen/txt_or_size"
+       />
+
+    <EditText
+        android:id="@+id/eTextMail"
+        style="@style/font_login_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/EditText_h"
+
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:hint="@string/email_add"
+        android:inputType="textEmailAddress"
+        android:padding="@dimen/eTextLEmail_padding"
+        android:textColor="@color/eTxtColor"
+        android:singleLine="true" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/eTextLPassword"
+        style="@style/font_login_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/EditText_h"
+        android:layout_marginTop="@dimen/LogoMargin"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:digits="@string/commom_digits_alphanumeric"
+        android:hint="@string/pass"
+        android:imeOptions="actionDone"
+        android:textColor="@color/eTxtColor"
+        android:inputType="textPassword"
+        android:padding="@dimen/eTextLEmail_padding"
+        android:singleLine="true" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/txtForgotPass"
+        style="@style/font_login_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/LogoMargin"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="@string/forgot_pass"
+        android:textColor="@drawable/text_pink_selector" />
+
+    <Button
+        android:id="@+id/btnSignIn"
+        style="@style/font_login_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/EditText_h"
+        android:background="@drawable/btn_login_selector"
+        android:text="@string/log_in"
+        android:textColor="@color/home_btn_txt_color"/>
+</LinearLayout>
+    </RelativeLayout>
+</ScrollView>
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dialog_40dp"
+    android:background="@color/peach_color"
+    android:gravity="center">
+<ImageView
+    android:paddingTop="@dimen/padding_5dp"
+    android:paddingBottom="@dimen/padding_5dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_share"
+    android:tint="@android:color/white"
+    />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/abc_shareactionprovider_share_with"
+        android:textSize="@dimen/text_size_18sp"
+        android:textColor="@color/white"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingTop="@dimen/padding_50dp"
+        android:paddingBottom="@dimen/padding_50dp"
+        android:paddingLeft="@dimen/padding_40dp"
+        android:paddingRight="@dimen/padding_40dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <arya.spliro.custom.CircularImageView
+            android:id="@+id/img_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_5dp"
+            android:src="@drawable/sp_fb_ic"/>
+        <arya.spliro.custom.CircularImageView
+            android:id="@+id/img_twitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_5dp"
+            android:src="@drawable/sp_twitter_ic"/>
+        <arya.spliro.custom.CircularImageView
+            android:id="@+id/img_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_5dp"
+            android:src="@drawable/sp_google_ic"/>
+        <arya.spliro.custom.CircularImageView
+            android:id="@+id/img_email"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/margin_5dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sp_email_ic"/>
+
+    </LinearLayout>
+</LinearLayout>

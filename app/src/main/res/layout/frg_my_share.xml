@@ -1,0 +1,144 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_backGroundColor"
+    android:orientation="vertical"
+    tools:context="arya.spliro.viewController.MySharesActivity">
+
+    <RelativeLayout
+        android:id="@+id/relappHMS"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:background="@android:color/transparent"
+        android:gravity="center_vertical">
+
+
+        <Button
+            android:id="@+id/btnBackAppHMS"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/selector_button_back"
+            android:clickable="true"
+            android:drawableLeft="@drawable/ic_invite_by_favorite"
+            android:paddingLeft="@dimen/btn_padding_5"
+            android:text="@string/favorites"
+            android:drawablePadding="@dimen/btn_padding_5"
+            android:textColor="@color/postLocContainerBackG" />
+
+
+        <TextView
+            android:id="@+id/txtTitleAppH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+
+            android:gravity="center"
+            android:text="@string/title_activity_my_share"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/t_headertextsize" />
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgRightMS"
+                android:layout_width="@dimen/header_height"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/margin_r_to_search_ms"
+                android:background="@drawable/selector_button_back"
+                android:clickable="true"
+                android:padding="@dimen/btn_padding"
+                android:src="@drawable/spl_ic_down_arrow" />
+
+            <ImageView
+                android:id="@+id/imgSearchMS"
+                android:layout_width="@dimen/header_height"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@drawable/selector_button_back"
+                android:clickable="true"
+                android:padding="@dimen/btn_padding"
+                android:src="@drawable/spl_ic_header_search" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/btn_padding"
+        android:layout_marginLeft="@dimen/btn_padding"
+        android:layout_marginRight="@dimen/btn_padding"
+        android:background="@drawable/rectangle_cornor"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPast"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/header_height"
+            android:layout_weight="1"
+            android:background="@drawable/rect_selector"
+            android:gravity="center"
+            android:text="@string/past"
+
+            android:textColor="@color/postLocContainerBackG"
+            android:textSize="@dimen/spl_txt_tab_size" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/peach_color" />
+
+            <Button
+                android:id="@+id/btnCurrent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/header_height"
+                android:layout_weight="1"
+                android:background="@drawable/rect_selector"
+                android:gravity="center"
+                android:text="@string/current"
+                android:textColor="@color/postLocContainerBackG"
+                android:textSize="@dimen/spl_txt_tab_size" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/peach_color" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSaved"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/header_height"
+            android:layout_weight="1"
+            android:background="@drawable/rect_selector"
+            android:gravity="center"
+            android:text="@string/saved"
+            android:textColor="@color/postLocContainerBackG"
+            android:textSize="@dimen/spl_txt_tab_size" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/myShareFramContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/listViewMyShare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+        </FrameLayout>
+
+</LinearLayout>

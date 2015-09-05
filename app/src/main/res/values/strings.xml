@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--common strings-->
+    <string name="device_does_not_support_camera"> Device does not support to back camera.</string>
+    <string name="app_name">spliro</string>
+
+    <!--set Strings for Header titles-->
+
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_my_share">My shares</string>
+    <string name="title_create_post_low"> Create post </string>
+    <string name="title_browser">Browse</string>
+    <string name="more">More</string>
+<string name="Info">Info</string>
+    <!--    set String for Create Post Screen -->
+    <string name="preview"> preview </string>
+	<string name="Title">Title</string>
+    <string name="Description">Description</string>
+	<string name="hash_tag">HashTags</string>
+    <string name="photo_uploading_from_sdcard">Photo uploading from sdcard.</string>
+    <string name="change_location_click">change location</string>
+    <string name="upload_photo">upload photo</string>
+    <string name="description">description</string>
+    <string name="no_of_shares">no. of shares</string>
+    <string name="share_ends">share ends</string>
+    <string name="invite_all">invite all</string>
+    <string name="price_click">price</string>
+    <string name="price">Price</string>
+<string name="select_your_sharing_location">Select your sharing location.</string>
+    <string name="select_share_end_date">Select share end date.</string>
+    <string name="title_info_msg"> Title info.</string>
+    <string name="change_location_info_msg">Change location Info</string>
+    <string name="upload_photo_info_msg">Upload photo info</string>
+    <string name="hash_tag_info_msg">Hash tag info</string>
+    <string name="description_info_msg">Description Info</string>
+    <string name="no_of_shares_info_msg">Number of shares info</string>
+    <string name="share_end_info_msg">Share end date info</string>
+    <string name="invite_all_info_msg">Invite all info</string>
+    <string name="price_info_msg">Price Info</string>
+
+    <string name="title_error_msg">Please enter a valid title </string>
+    <string name="change_location_error_msg">Please select your sharing location.</string>
+    <string name="upload_photo_error">Please upload photo of share\'s thing. </string>
+    <string name="hash_tag_error_msg">Please enter valid hashtag.</string>
+    <string name="description_error_msg">Please enter description.</string>
+    <string name="share_end_date_error_msg">Please Select share\'s end date.</string>
+    <string name="invite_error_msg">Please invite shares.</string>
+    <string name="total_price_error_msg">Please set total price.</string>
+	<!--    set String for Login Screen -->
+
+	<string name="email_add"> Email / Phone No.</string>
+	<string name="pass">Password</string>
+	<string name="forgot_pass">forgot password?</string>
+    <string name="enter_otp_code">Enter otp</string>
+    <string name="or">Or</string>
+	<string name="log_in">login</string>
+    <string name="send">SEND</string>
+	<string name="log_in_with_fb"> login with facebook</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <!--    set String for Home Screen -->
+    <string name="new_account">new user</string>
+    <string name="existing_account">existing user</string>
+    <string name="title_activity_home_activity_screen">HomeActivityScreen</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="title_activity_sign_in">SignInActivity</string>
+
+    <!--    set String for Signup Screen -->
+    <string name="email_not_retreived_message">You need to share your email with facebook, without sharing email address you are unable to signin/signup on Spliro</string>
+<string name="register_with_facebook">register with facebook</string>
+    <string name="by_clicking_policy_link"> I Agree, to Spliro\'s User Agreement,\n Privacy Policy, and cookie policy.</string>
+    <string name="thisNumberDoesNot">This phone number does not exist.</string>
+    <!--<string name="by_clicking_policy">By clicking Join now, you agree to Spliro\'s User Agreement Privacy Policy, and cookie policy.</string>-->
+    <string name="join_now">join now</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name"> Last Name</string>
+    <string name="display_name"> Display Name</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="terms_and_conditions_message">Text to show is coming soon........</string>
+    <string name="your_login_id_pass_send">Your Login id and password has been sent to your used account for registration.</string>
+
+    <!-- Signup page error Messages String -->
+    <string name="first_name_error_msg_max">First name length maximum 14 characters.</string>
+    <string name="last_name_error_msg_max">Last name length maximum 12 characters.</string>
+    <string name="last_name_only_special_msg">Only special characters are not allowed in last name.</string>
+    <string name="last_name_only_numeric_msg">Only numeric characters are not allowed in last name.</string>
+    <string name="first_name_error_msg">First name must be at least 1 character.</string>
+    <string name="do_you_want_to_delete_location">Do you want to delete selected location?</string>
+    <string name="first_name_only_special_msg">Only special characters are not allowed in first name.</string>
+    <string name="first_name_only_numeric_msg">Only numeric characters are not allowed in first name.</string>
+<string name="otp_error_msg">Please enter valid otp.</string>
+    <string name="display_name_error_msg_max">Display name length maximum 26 characters.</string>
+    <string name="display_name_error_msg">Display name must be at least 1 character.</string>
+    <string name="display_name_only_special_msg">Only special characters are not allowed in Display name.</string>
+    <string name="display_name_only_numeric_msg">Only numeric characters are not allowed in Display name.</string>
+
+    <string name="about_self_error_msg_max">Maximum text length should be 1000 characters.</string>
+    <string name="about_self_error_msg">Minimum text length should be 80 characters.</string>
+    <string name="about_self_only_special_msg">Only special characters are not allowed.</string>
+    <string name="about_self_only_numeric_msg">Only numeric characters are not allowed.</string>
+
+
+    <string name="last_name_error_msg">Last name must be at least 1 character.</string>
+    <string name="phone_num_error_msg">Phone number must be 10 digits long.</string>
+    <string name="phone_num_allready_exist_error_msg">Selected phone number is already exist in list.</string>
+    <string name="contact_name_error">Selected contact name is not valid.</string>
+    <string name="email_error_msg">Please enter valid email Id.</string>
+    <string name="enter_valid_email_phone">Please enter valid Email or Phone Number.</string>
+    <string name="password_must_error_msg">Password must be at least 8 characters.</string>
+    <string name="check_policy_signup"> Please check terms of use.</string>
+    <string name="pass_do_not_match_error_msg">Passwords do not match.</string>
+    <string name="msg_password_must_contain_numeric_special_character">Password must contain a numeric and a character.</string>
+    <string name="msg_pass_and_repass_msg">Passwords does not match Try again?</string>
+    <string name="space_validation">Please do not begin or end your password with blank space.</string>
+    <string name="wait">wait...</string>
+    <string name="noInternetMsg">Internet not available.</string>
+
+    <!--    set String for Authorization Screen -->
+    <string name="title_activity_authorization">AuthorizationActivity</string>
+    <string name="enter_auth_code">Please enter Authentication Code </string>
+    <string name="activate_my_account"> activate my account </string>
+    <string name="resend_pin">resend pin</string>
+    <string name="please_enter_correct_varification_code">Please enter correct verification code.</string>
+    <string name="varification_code_has">verification code has been sent to</string>
+    <string name="authorization_error">Authorization failed. Please check the code and try re-submitting. (Authorization pins are case sensitive.)</string>
+    <!--    set String for More Screen -->
+
+    <string name="Search"> Search</string>
+    <string name="idea">Idea</string>
+    <string name="location">Location</string>
+    <string name="my_profile"> My Profile </string>
+    <string name="Invite">Invite</string>
+    <string name="feedback">Feedback</string>
+    <string name="share">Share</string>
+    <string name="support">Support</string>
+    <string name="rate">Rate</string>
+    
+    <string-array name="more_images_arr">
+        <item>@string/idea</item>
+        <item>@string/location</item>
+        <item>@string/my_profile</item>
+        <item>@string/Invite</item>
+        <item>@string/feedback</item>
+        <item>@string/share</item>
+        <item>@string/support</item>
+        <item>@string/rate</item>
+    </string-array>
+    <!--    set String for My Profile Screen -->
+    <string name="title_activity_my_profile">MyProfileActivity</string>
+    <string name="interest_categories">Interest Categories</string>
+    <string name="about_your_self">About Your Self</string>
+    <string name="notification">Notification</string>
+    <string name="logout_now">Logout Now</string>
+    <string name="my_profile_cap">MY PROFILE</string>
+    <string name="edit">edit</string>
+
+    <!--    set String for My Share Screen -->
+
+<string name="favorites">favorites</string>
+    <string name="past">Past</string>
+    <string name="current">Current</string>
+    <string name="saved">Saved</string>
+    <string name="add_to_favorites">Add to favorites </string>
+    <string name="you_are_invited">You are invited</string>
+    <string name="title_activity_my_shares_detail">MySharesDetail</string>
+    <string name="not_posted_yet_msg">not posted yet</string>
+
+
+    <!--    set String for My Share Detail Screen -->
+<string name="flag_post">Flag\n post</string>
+    <string name="you_are_invited_2_lines">You are\n invited</string>
+<string name="send_a_message">Send a message</string>
+<string name="decline">Decline</string>
+    <string name="view_receipt">View receipt</string>
+    <string name="accept">Accept</string>
+
+    <!--    set String for My Share Detail Screen -->
+
+    <string name="title_activity_location">LOCATION</string>
+    <string name="enter_location">Enter Location</string>
+<string name="commom_digits_alphanumeric">0123456789,abcdefghijklmnopqrstuvwxyz,ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="commom_digits_alphanumeric_with_space">0123456789, ,abcdefghijklmnopqrstuvwxyz,ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="title_activity_tab">TabActivity</string>
+
+    <!--set String for tab bar-->
+
+    <string name="browse">browse</string>
+    <string name="notifications">notifications</string>
+    <string name="create_post">create post</string>
+    <string name="my_shares">my shares</string>
+    <string name="more_s">more</string>
+    <string-array name="tab_array">
+        <item>@string/browse</item>
+        <item>@string/notifications</item>
+        <item>@string/create_post</item>
+        <item>@string/my_shares</item>
+        <item>@string/more_s</item>
+    </string-array>
+
+    <string-array name="tab_imgages_id_array">
+        <item>spl_ic_browse</item>
+        <item>spl_ic_notifications</item>
+        <item>spl_ic_createpost</item>
+        <item>spl_ic_myshares</item>
+        <item>spl_ic_more</item>
+    </string-array>
+    <string-array name="tab_selected_imgages_id_array">
+        <item>spl_ic_browse_selected</item>
+        <item>spl_ic_notifications_selected</item>
+        <item>spl_ic_createpost_selected</item>
+        <item>spl_ic_myshares_selected</item>
+        <item>spl_ic_more_selected</item>
+    </string-array>
+
+
+
+    <!-- set String invite screen-->
+    <string name="invite_address_book">invite through address book</string>
+    <string name="invite_favorite_list">invite through favorite list</string>
+    <!-- //set Dialog screen-->
+
+    <string name="Upload_Photo">Upload Photo?</string>
+    <string name="Use_Camera">Use Camera</string>
+    <string name="Use_Existing_Photos">Use Existing Photos </string>
+    <string name="Cancel">cancel</string>
+
+    <string name="msg_Completion_date_validation">Completion date cannot be older than today</string>
+    <string name="Select_Date_And_Time">Select date and time</string>
+    <string name="Set">Set</string>
+
+    <string name="title_activity_select_location">Select location</string>
+    <string name="add_location">add location</string>
+    <string name="more_than_list_location">you can\'t add more than 10 locations please remove one from the list shown</string>
+    <!-- set my share current  -->
+    <string name="close">close</string>
+    <string name="closed">closed</string>
+    <string name="view_recipt">view recipt</string>
+    <string name="repost">repost</string>
+    <!--my sahre rate screen  -->
+    <string name="rate_your_friend">rate your friends</string>
+    <string name="later">later</string>
+    <string name="submit">submit</string>
+    <!--notification  -->
+    <string name="all">all</string>
+    <string name="chat">chat</string>
+    <string name="date">date</string>
+    <!--screen card -->
+    <string name="per_share">$0 per share</string>
+    <string name="total_price">total price</string>
+    <string name="per_share_price">per share price</string>
+    <string name="upload_reciept">upload reciept</string>
+    <string name="msg_valid_location">Please Enter a valid  location</string>
+
+    <!--set Strings to Invite Screen-->
+    <string name="Invitee_list">Invitee list</string>
+    <string name="apply">apply</string>
+    <string name="max_price_value_message">total price can\'t exceed 99999</string>
+    <string name="title_activity_price">Price</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="do_you_want_to_delect_selected_invitee">Do you want to delete selected invitee from list.</string>
+    <!--set String to Favorite Screen-->
+    <string name="title_favorite">Favorites</string>
+    <string name="shares">shares</string>
+    <string name="user">user</string>
+    <string name="preview_location">location</string>
+    <string name="save">save</string>
+    <string name="delete">delete</string>
+    <string name="post">post</string>
+    <string name="view_receipt_two_lines">view\nreceipt</string>
+    <string name="distance_mile_away">mi\n away</string>
+    <string name="zeor_mi_distance"> 0 mi\n away</string>
+
+    <!--set String for All success Messages-->
+    <string name="do_you_want_to_delete">Do you want to delete this post.</string>
+    <string name="post_deleted_successfully">Post deleted successfully.</string>
+    <string name="post_closed_successfully">Post closed successfully.</string>
+    <string name="post_posted_successfully">Posted successfully.</string>
+    <string name="post_updated_successfully">Posted updated successfully.</string>
+    <string name="do_you_want_to_close_post">If you want to close this post you will not able to chat.</string>
+</resources>

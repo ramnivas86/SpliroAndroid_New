@@ -1,0 +1,439 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_reg_bg"
+    android:orientation="vertical"
+    tools:context="arya.spliro.viewController.MySharesDetailActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical"
+            tools:context="arya.spliro.viewController.MySharesDetailActivity">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/peach_color"
+                android:orientation="vertical"
+                tools:context="arya.spliro.viewController.MySharesDetailActivity">
+
+                <RelativeLayout
+                    android:id="@+id/relappHMSD"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/header_height"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical">
+
+
+                    <Button
+                        android:id="@+id/btnBackAppHMS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:background="@drawable/selector_button_back"
+                        android:clickable="true"
+                        android:drawableLeft="@drawable/spl_ic_back_w_l"
+                        android:padding="@dimen/btn_padding"
+
+                        android:textColor="@color/postLocContainerBackG" />
+
+
+                    <TextView
+                        android:id="@+id/txtTitleAppH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+
+                        android:gravity="center"
+                        android:text="@string/title_activity_my_share"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/t_headertextsize" />
+
+                    <LinearLayout
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentLeft="true"
+                            android:background="@drawable/selector_button_back"
+                            android:clickable="true"
+                            android:drawableRight="@drawable/spl_ic_flag_post"
+                            android:paddingRight="@dimen/btn_padding"
+                            android:text="@string/flag_post"
+                            android:textColor="@color/postLocContainerBackG" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/btn_padding">
+
+                    <RelativeLayout
+                        android:id="@+id/cImgSharesDContainer"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="@dimen/shared_img_h"
+
+                        android:layout_alignParentLeft="true">
+
+                        <arya.spliro.custom.CircularImageView
+                            android:id="@+id/cImgShares"
+                            android:layout_width="@dimen/shared_img_h"
+                            android:layout_height="@dimen/shared_img_h"
+                            android:layout_alignParentLeft="true" />
+
+                        <LinearLayout
+                            android:id="@+id/shareInfoContainer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_toRightOf="@+id/cImgShares"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/signup_View_w"
+                            android:paddingRight="@dimen/signup_View_w">
+
+                            <TextView
+                                android:id="@+id/txtSharesName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:singleLine="true"
+                                android:text="user name"
+
+                                android:textColor="@color/postLocContainerBackG"
+                                android:textSize="@dimen/spl_txt_tab_size" />
+
+                            <RatingBar
+                                android:id="@+id/rtShareOwner"
+                                style="@style/CustomRatingBar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txtSharesName"
+                                android:layout_gravity="center|left"
+                                android:layout_marginTop="@dimen/signup_View_w"
+
+                                android:layout_toRightOf="@+id/cImgShares"
+                                android:focusable="false"
+                                android:isIndicator="true"
+                                android:numStars="5"
+                                android:stepSize="0.01" />
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearPriceLay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@+id/cImgSharesDContainer"
+                        android:gravity="right"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:text="$2344"
+
+                            android:textColor="@color/postLocContainerBackG"
+                            android:textSize="@dimen/txt_price_size_1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:singleLine="true"
+                            android:text="$12 per each"
+                            android:textColor="@color/postLocContainerBackG"
+                            android:textSize="@dimen/add_fav_txt_size_my_share" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/btn_padding"
+                    android:paddingRight="@dimen/btn_padding">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:orientation="horizontal"
+                        android:paddingBottom="@dimen/btn_padding"
+                        android:paddingTop="@dimen/txtDistance_padding_top">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="-5dp"
+                            android:src="@drawable/spl_ic_invited" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selector_button_back"
+                            android:text="@string/you_are_invited_2_lines"
+                            android:textColor="@color/postLocContainerBackG" />
+                    </LinearLayout>
+
+                    <arya.spliro.custom.CircularImageView
+                        android:id="@+id/cImgItemShareD"
+                        android:layout_width="@dimen/c_img_share_item_h"
+                        android:layout_height="@dimen/c_img_share_item_h"
+
+                        android:layout_centerInParent="true" />
+
+                    <TextView
+                        android:id="@+id/txtDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_toRightOf="@+id/cImgItemShareD"
+                        android:gravity="right"
+                        android:paddingTop="@dimen/txtDistance_padding_top"
+                        android:text="$12"
+                        android:textColor="@color/postLocContainerBackG"
+                        android:textSize="@dimen/txt_price_size_2" />
+
+                    <TextView
+                        android:id="@+id/txtJoinedCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/txtDistance"
+                        android:layout_toRightOf="@+id/cImgItemShareD"
+                        android:gravity="right"
+                        android:paddingTop="@dimen/txtDistance_padding_top"
+                        android:text="$12"
+                        android:textColor="@color/postLocContainerBackG"
+                        android:textSize="@dimen/txt_price_size_3" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtTitleAppH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/btn_padding"
+                    android:paddingRight="@dimen/btn_padding"
+
+                    android:text="Hey would you like to try this "
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/spl_txt_tab_size" />
+
+                <Button
+                    android:id="@+id/btnBackAppHMS"
+                    android:layout_width="@dimen/header_height"
+                    android:layout_height="@dimen/header_height"
+
+                    android:layout_gravity="center"
+                    android:background="@drawable/selector_button_back"
+                    android:clickable="true"
+
+                    android:drawableLeft="@drawable/spl_ic_more_arrow"
+                    android:textColor="@color/postLocContainerBackG" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/btn_padding_20"
+                android:paddingRight="@dimen/btn_padding_20">
+
+                <LinearLayout
+                    android:id="@+id/linear12"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/no_of_shares_container_h"
+                    android:layout_marginTop="@dimen/btn_padding"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/btn_padding_5"
+                        android:layout_weight="1"
+                        android:background="@color/postLocContainerBackG">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/txtNoOfShares"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="@dimen/btn_padding_5"
+                                android:text="1"
+                                android:textColor="@color/eTxtColor"
+                                android:textSize="@dimen/txt_price_size_1" />
+
+
+                        </LinearLayout>
+
+
+                        <TextView
+android:id="@+id/txtNoOfShares"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/header_height"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:background="@color/create_post_pinc"
+                            android:gravity="center"
+                            android:text="@string/no_of_shares"
+                            android:textColor="@android:color/white"
+
+                            android:textSize="@dimen/postTxtContainer_txt_size" />
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/btn_padding_5"
+                        android:layout_weight="1"
+                        android:background="@color/postLocContainerBackG">
+
+
+                        <TextView
+                            android:id="@+id/txtDate"
+                            android:layout_width="fill_parent"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/txtShareEnds"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:padding="@dimen/btn_padding_5"
+                            android:text="15 July, 2:30 PM"
+                            android:textColor="@color/eTxtColor"
+                            android:textSize="@dimen/postTxtContainer_txt_size" />
+
+
+                        <TextView
+                            android:id="@+id/txtShareEnds"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/header_height"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:background="@color/create_post_pinc"
+                            android:gravity="center"
+                            android:text="@string/share_ends"
+                            android:textColor="@android:color/white"
+
+                            android:textSize="@dimen/postTxtContainer_txt_size" />
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/descreptionContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/btn_padding"
+                    android:background="@color/postLocContainerBackG">
+
+                    <RelativeLayout
+                        android:id="@+id/imgDescCont"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+
+                        android:layout_below="@+id/include_desc">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:clickable="true"
+                            android:padding="@dimen/btn_padding_20"
+                            android:src="@drawable/spl_ic_send_message" />
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/txtDescr"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/header_height"
+                        android:layout_below="@+id/imgDescCont"
+                        android:background="@color/create_post_pinc"
+                        android:gravity="center"
+                        android:text="@string/send_a_message"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/postTxtContainer_txt_size" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/txtDistance_padding_top"
+                    android:layout_marginTop="@dimen/txtDistance_padding_top"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtDecline"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/btn_padding"
+                        android:paddingTop="@dimen/btn_padding"
+                        android:text="@string/decline"
+                        android:textColor="@color/postLocContainerBackG"
+                        android:textSize="@dimen/t_headertextsize" />
+
+                    <TextView
+                        android:id="@+id/txtJoinedCount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/btn_padding"
+                        android:paddingTop="@dimen/btn_padding"
+                        android:text="@string/view_receipt"
+                        android:textColor="@color/postLocContainerBackG"
+                        android:textSize="@dimen/font_login_text_size" />
+
+                    <TextView
+                        android:id="@+id/txtJoinedCount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:paddingBottom="@dimen/btn_padding"
+                        android:paddingTop="@dimen/btn_padding"
+                        android:text="@string/accept"
+                        android:textColor="@color/postLocContainerBackG"
+                        android:textSize="@dimen/t_headertextsize" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

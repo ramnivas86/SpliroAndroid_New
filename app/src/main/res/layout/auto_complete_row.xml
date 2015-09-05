@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtCatName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Invitee_list"
+        android:textColor="@color/eTxtColor"
+        android:gravity="center|left"
+        android:textSize="@dimen/text_invite_doer"
+        android:padding="@dimen/invite_doer_padding"
+        android:layout_marginBottom="@dimen/btn_padding" />
+</LinearLayout>

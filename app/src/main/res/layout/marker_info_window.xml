@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/trans_color"
+    android:paddingRight="@dimen/txtDistance_padding_top"
+    android:paddingLeft="@dimen/txtDistance_padding_top">
+
+    <RelativeLayout
+        android:id="@+id/relMI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_corner_infowindow">
+
+        <TextView
+            android:id="@+id/txtTitleMI"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/Info"
+            android:textSize="@dimen/font_login_text_size"
+            android:paddingTop="@dimen/btn_padding"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/txtTitleMI"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:minHeight="@dimen/marker_window_h"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/txtAddressMI"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/btn_padding"
+                android:paddingRight="@dimen/btn_padding"
+                android:paddingBottom="@dimen/btn_padding"
+                android:gravity="center"
+
+                android:layout_centerInParent="true"
+                android:textColor="@color/black"
+                android:lineSpacingExtra="@dimen/extra_line_space_constants"
+                android:textSize="@dimen/spl_txt_tab_size" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/downarrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relMI"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-2dp"
+        android:src="@drawable/downarrow" />
+</RelativeLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_backGroundColor"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/relappHBrowse"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:background="@android:color/transparent"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/txtTitleAppHB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/title_notifications"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/t_headertextsize" />
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+
+            <ImageView
+                android:id="@+id/imgSearchBrowseB"
+                android:layout_width="@dimen/header_height"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="@drawable/selector_button_back"
+                android:clickable="true"
+                android:padding="@dimen/btn_padding"
+                android:src="@drawable/spl_ic_header_search" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:weightSum="3">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/rectangle_cornor"
+            android:layout_margin="@dimen/ll_margin_10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/all"
+                android:gravity="center"
+                android:textSize="@dimen/noti_text_size_16sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/rect_selector"
+                android:layout_height="@dimen/btn_hight" />
+            <View
+                android:layout_width="1dp"
+                android:layout_height="@dimen/btn_hight"
+                android:background="@color/peach_color"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/chat"
+                android:gravity="center"
+                android:textSize="@dimen/noti_text_size_16sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/rect_selector"
+                android:layout_height="@dimen/btn_hight"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="#00000000"
+        android:scrollingCache="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="@dimen/deviderHeigh_my_share"
+        android:fadeScrollbars="true"
+
+        android:smoothScrollbar="true"/>
+</LinearLayout>

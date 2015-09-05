@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/login_bg"
+    android:padding="@dimen/activity_layout_padding" >
+
+    <ImageView
+        android:id="@+id/imgSignLogo"
+        android:layout_width="@dimen/logo_w"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/LogoMargin_home"
+        android:src="@drawable/logo" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_below="@+id/imgSignLogo"
+        android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnNewUser"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_height"
+        android:gravity="center"
+
+        android:singleLine="true"
+        android:text="@string/new_account"
+        android:textColor="@color/home_btn_txt_color"
+        android:background="@drawable/btn_login_selector"
+        android:textSize="@dimen/login_txt_size" />
+
+    <Button
+        android:id="@+id/btnExistUser"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_height"
+        android:layout_marginTop="@dimen/LogoMargin"
+        android:background="@drawable/btn_login_selector"
+        android:gravity="center"
+        android:text="@string/existing_account"
+        android:layout_below="@+id/btnNewUser"
+        android:textColor="@color/home_btn_txt_color"
+
+        android:textSize="@dimen/login_txt_size" />
+</LinearLayout>
+</RelativeLayout>
