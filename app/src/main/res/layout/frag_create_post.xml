@@ -353,7 +353,7 @@
                             android:paddingBottom="@dimen/btn_padding"
                             android:textColor="@color/postTxtContainer_txt_color"
                             android:textSize="@dimen/postTxtContainer_txt_size"
-                            android:visibility="gone" />
+                            />
 
                         <ImageView
                             android:id="@+id/imgDescription"

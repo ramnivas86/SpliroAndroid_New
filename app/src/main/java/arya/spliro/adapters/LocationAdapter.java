@@ -64,7 +64,7 @@ public class LocationAdapter extends BaseAdapter{
         {
             holder = (MSPastViewHolder) convertView.getTag();
         }
-        holder.  img_add_loc.setImageDrawable(mcontext.getResources().getDrawable(android.R.drawable.ic_menu_close_clear_cancel));
+        holder.  img_add_loc.setImageDrawable(mcontext.getResources().getDrawable(R.drawable.spl_ic_cross_img));
         holder.img_add_loc.setColorFilter(mcontext.getResources().getColor(R.color.peach_color));
         holder.img_add_loc.setOnClickListener(clickListener);
         LocationData data=locationArrList.get(position);

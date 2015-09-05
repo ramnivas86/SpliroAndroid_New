@@ -101,9 +101,6 @@ public class InviteAllFragment extends AbstractFragment implements View.OnClickL
 fm=getActivity().getSupportFragmentManager();
         ft=fm.beginTransaction();
     }
-
-
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub

@@ -72,7 +72,8 @@ public class DatabaseMgrSpliro {
         try {
             if(keyword!=null)
             {
-                cursor =cursor=queryTable(TableType.CategoryTable, null,Categories.KEY_NAME + "=?",new String[] {keyword },null, null,null,null);
+                cursor=dbMgr.sqLiteDb.rawQuery("Select * from "+TableType.CategoryTable.getTableName()+" where "+Categories.KEY_HASHTAG+" like '%"+keyword+"%' or "+Categories.KEY_KEYWORDS+" like '%"+keyword+"%' limit 1",null);
+//                cursor=queryTable(TableType.CategoryTable, null,Categories.KEY_NAME + "=?",new String[] {keyword },null, null,null,null);
             }
             else
             {

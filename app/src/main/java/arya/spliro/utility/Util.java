@@ -573,11 +573,11 @@ public class Util {
         } catch (IOException e) {
             e.printStackTrace();
         }
-String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
+        String imagePath = saveFileToFolder(ctx, scaledBitmap, 85);
         scaledBitmap.recycle();
         bmp.recycle();
-        scaledBitmap=null;
-        bmp=null;
+        scaledBitmap = null;
+        bmp = null;
         return imagePath;
 
     }
@@ -620,8 +620,8 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
 
     public static String saveFileToFolder(Context ctx, Bitmap mBitmap, int compression) {
         FileOutputStream fos = null;
-        String imageName= Constants.profileImge + System.currentTimeMillis() + Constants.imageFormat;
-        File createdImagePath = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + Constants.AppFolderName+ File.separator + Constants.createFolder + File.separator +imageName);
+        String imageName = Constants.profileImge + System.currentTimeMillis() + Constants.imageFormat;
+        File createdImagePath = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + Constants.AppFolderName + File.separator + Constants.createFolder + File.separator + imageName);
         try {
             fos = new FileOutputStream(createdImagePath);
             if (compression != 0) {
@@ -629,7 +629,7 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
             }
             fos.flush();
             fos.close();
-     String savedImagePath= MediaStore.Images.Media.insertImage(ctx.getContentResolver(), mBitmap, createdImagePath.getPath(),imageName);
+            String savedImagePath = MediaStore.Images.Media.insertImage(ctx.getContentResolver(), mBitmap, createdImagePath.getPath(), imageName);
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -650,10 +650,11 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
         ft1.commit();
         return ft1;
     }
-    public static FragmentTransaction addFragment(FragmentManager fm, Fragment frg,int resource,boolean addToBackStack) {
+
+    public static FragmentTransaction addFragment(FragmentManager fm, Fragment frg, int resource, boolean addToBackStack) {
         FragmentTransaction ft1 = fm.beginTransaction();
         ft1.replace(resource, frg);
-        if(addToBackStack)
+        if (addToBackStack)
             ft1.addToBackStack(null);
 
         ft1.commit();
@@ -774,101 +775,82 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
     }
 
 
-    public static SpannableStringBuilder setDistanseSpan(Context context,String str,int startIndex,int endIndex)
-    {
-        SpannableStringBuilder s=new SpannableStringBuilder(str);
-        s.setSpan (new CustomTypefaceSpan("", SpliroApp.getFontSemiBold()), startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        s.setSpan (new CustomTypefaceSpan("", SpliroApp.getFontLight()),endIndex, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        s.setSpan (new AbsoluteSizeSpan((int)context.getResources().getDimension(R.dimen.add_fav_txt_size_my_share)),endIndex+1, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    public static SpannableStringBuilder setDistanseSpan(Context context, String str, int startIndex, int endIndex) {
+        SpannableStringBuilder s = new SpannableStringBuilder(str);
+        s.setSpan(new CustomTypefaceSpan("", SpliroApp.getFontSemiBold()), startIndex, endIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s.setSpan(new CustomTypefaceSpan("", SpliroApp.getFontLight()), endIndex, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s.setSpan(new AbsoluteSizeSpan((int) context.getResources().getDimension(R.dimen.add_fav_txt_size_my_share)), endIndex + 1, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return s;
     }
-    public static String calculatePerSharePrice(double total_price,double no_of_shares)
-    {
-        String s=String.format("%.2f",total_price/no_of_shares);
+
+    public static String calculatePerSharePrice(double total_price, double no_of_shares) {
+        String s = String.format("%.2f", total_price / no_of_shares);
         return s;
     }
-    public static void showImageInDefaultImageViewer(Context ctx,String path)//22/8/2015 phoosaram
+
+    public static void showImageInDefaultImageViewer(Context ctx, String path)//22/8/2015 phoosaram
     {
-        if(path!=null&&!path.isEmpty()) {
+        if (path != null && !path.isEmpty()) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_VIEW);
             intent.setDataAndType(Uri.fromFile(new File(path)), "image/*");
             ctx.startActivity(intent);
         }
     }
-    public static boolean validationPassword(Context context,EditText editPassword,View singUpBtn)
-    {
-        boolean b=false;
-        String  pass = editPassword.getText().toString().trim();
-        if ( pass.trim().length() < Constants.MINIMUMLENGTHOFPASS) {
-            Util.showOkErrorDialog(context.getString(R.string.password_must_error_msg),editPassword,singUpBtn);
 
-        }
-        else if (!Util.passwordPatternValidation(pass))
-        {
-            Util.showOkErrorDialog(context.getString(R.string.msg_password_must_contain_numeric_special_character),editPassword,singUpBtn);
-        }
-        else
-        {
-            b=true;
+    public static boolean validationPassword(Context context, EditText editPassword, View singUpBtn) {
+        boolean b = false;
+        String pass = editPassword.getText().toString().trim();
+        if (pass.trim().length() < Constants.MINIMUMLENGTHOFPASS) {
+            Util.showOkErrorDialog(context.getString(R.string.password_must_error_msg), editPassword, singUpBtn);
+
+        } else if (!Util.passwordPatternValidation(pass)) {
+            Util.showOkErrorDialog(context.getString(R.string.msg_password_must_contain_numeric_special_character), editPassword, singUpBtn);
+        } else {
+            b = true;
         }
         return b;
     }
 
 
-        public static boolean validationFirstName(Context context,EditText editFirstName,View singUpBtn)
-    {
-        boolean b=false;
-        String fName=editFirstName.getText().toString().trim();
+    public static boolean validationFirstName(Context context, EditText editFirstName, View singUpBtn) {
+        boolean b = false;
+        String fName = editFirstName.getText().toString().trim();
         if (fName.trim().length() < Constants.MINIMUMLENGTHOFNAME) {
-            Util. showOkErrorDialog(context.getString(R.string.first_name_error_msg),editFirstName,singUpBtn);
+            Util.showOkErrorDialog(context.getString(R.string.first_name_error_msg), editFirstName, singUpBtn);
 
-        }
-        else if (Util.checkStringsContainsOnlySpecialChar(fName)) {
-            Util.showOkErrorDialog(context.getString(R.string.first_name_only_special_msg),editFirstName,singUpBtn);
-        }
-        else if (Util.isNumeric(fName)) {
-            Util. showOkErrorDialog(context.getString(R.string.first_name_only_numeric_msg),editFirstName,singUpBtn);
-        }
-        else if (fName.trim().length() > Constants.MAXLENGTHOFFIRSTNAME) {
-            Util. showOkErrorDialog(context.getString(R.string.first_name_error_msg_max),editFirstName,singUpBtn);
-        }
-        else
-        {
-            b=true;
+        } else if (Util.checkStringsContainsOnlySpecialChar(fName)) {
+            Util.showOkErrorDialog(context.getString(R.string.first_name_only_special_msg), editFirstName, singUpBtn);
+        } else if (Util.isNumeric(fName)) {
+            Util.showOkErrorDialog(context.getString(R.string.first_name_only_numeric_msg), editFirstName, singUpBtn);
+        } else if (fName.trim().length() > Constants.MAXLENGTHOFFIRSTNAME) {
+            Util.showOkErrorDialog(context.getString(R.string.first_name_error_msg_max), editFirstName, singUpBtn);
+        } else {
+            b = true;
         }
         return b;
     }
-    public static boolean validationDisplayName(Context context,EditText editFirstName,View logoutBtn)
-    {
-        boolean b=false;
-        String fName=editFirstName.getText().toString().trim();
-        if (fName.trim().length() < Constants.MINIMUMLENGTHOFNAME)
-        {
-            Util. showOkErrorDialog(context.getString(R.string.display_name_error_msg),editFirstName,logoutBtn);
-        }
-        else if (Util.checkStringsContainsOnlySpecialChar(fName))
-        {
-            Util.showOkErrorDialog(context.getString(R.string.display_name_only_special_msg),editFirstName,logoutBtn);
-        }
-        else if (Util.isNumeric(fName))
-        {
-            Util. showOkErrorDialog(context.getString(R.string.display_name_only_numeric_msg),editFirstName,logoutBtn);
-        }
-        else if (fName.trim().length() > 26)
-        {
-            Util. showOkErrorDialog(context.getString(R.string.display_name_error_msg_max),editFirstName,logoutBtn);
-        }
-        else
-        {
-            b=true;
+
+    public static boolean validationDisplayName(Context context, EditText editFirstName, View logoutBtn) {
+        boolean b = false;
+        String fName = editFirstName.getText().toString().trim();
+        if (fName.trim().length() < Constants.MINIMUMLENGTHOFNAME) {
+            Util.showOkErrorDialog(context.getString(R.string.display_name_error_msg), editFirstName, logoutBtn);
+        } else if (Util.checkStringsContainsOnlySpecialChar(fName)) {
+            Util.showOkErrorDialog(context.getString(R.string.display_name_only_special_msg), editFirstName, logoutBtn);
+        } else if (Util.isNumeric(fName)) {
+            Util.showOkErrorDialog(context.getString(R.string.display_name_only_numeric_msg), editFirstName, logoutBtn);
+        } else if (fName.trim().length() > 26) {
+            Util.showOkErrorDialog(context.getString(R.string.display_name_error_msg_max), editFirstName, logoutBtn);
+        } else {
+            b = true;
         }
         return b;
     }
-    public static boolean validationLastName(Context context,EditText editLastName,View singUpBtn)
-    {
-        boolean flag=false;
-        String lName=editLastName.getText().toString().trim();
+
+    public static boolean validationLastName(Context context, EditText editLastName, View singUpBtn) {
+        boolean flag = false;
+        String lName = editLastName.getText().toString().trim();
         if (lName.trim().length() < Constants.MINIMUMLENGTHOFNAME) {
             Util.showOkErrorDialog(context.getString(R.string.last_name_error_msg), editLastName, singUpBtn);
         } else if (Util.checkStringsContainsOnlySpecialChar(lName)) {
@@ -877,116 +859,93 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
             Util.showOkErrorDialog(context.getString(R.string.last_name_only_numeric_msg), editLastName, singUpBtn);
         } else if (lName.trim().length() > Constants.MAXLENGTHOFLASTNAME) {
             Util.showOkErrorDialog(context.getString(R.string.last_name_error_msg_max), editLastName, singUpBtn);
-        }
-        else
-        {
-            flag=true;
+        } else {
+            flag = true;
         }
         return flag;
     }
-    public static boolean validationPhoneEmail(Context context,EditText editPhoneNo,View singUpBtn)
-    {
-        boolean flag=false;
-        String phone=editPhoneNo.getText().toString().trim();
-        String eMailId="";
+
+    public static boolean validationPhoneEmail(Context context, EditText editPhoneNo, View singUpBtn) {
+        boolean flag = false;
+        String phone = editPhoneNo.getText().toString().trim();
+        String eMailId = "";
         String phoneNumber = phone;
         if (phone.trim().length() >= 4) {
             phoneNumber = phone.substring(1, 4);
         }
-        if (Util.isNumeric(phoneNumber))
-        {
+        if (Util.isNumeric(phoneNumber)) {
             eMailId = "";
             phone = phone.replaceAll("\\D", "");
-        }
-        else
-        {
+        } else {
             eMailId = phone;
         }
 
 
-
-        if (phone.trim().length() == 0)
-        {
+        if (phone.trim().length() == 0) {
             Util.showOkErrorDialog(context.getString(R.string.enter_valid_email_phone), editPhoneNo, singUpBtn);
-        }
-        else if (phone.trim().length() != 0)
-        {
-            if (Util.isNumeric(phone) && phone.trim().length() != Constants.MAXLENGTHOFPHONENUMBER)
-            {
+        } else if (phone.trim().length() != 0) {
+            if (Util.isNumeric(phone) && phone.trim().length() != Constants.MAXLENGTHOFPHONENUMBER) {
                 Util.showOkErrorDialog(context.getString(R.string.phone_num_error_msg), editPhoneNo, singUpBtn);
-            }
-            else if (eMailId.trim().length() != 0 && (!Util.isEmailValid(phone)))
-            {
+            } else if (eMailId.trim().length() != 0 && (!Util.isEmailValid(phone))) {
                 Util.showOkErrorDialog(context.getString(R.string.email_error_msg), editPhoneNo, singUpBtn);
-            }
-            else
-            {
-                flag=true;
+            } else {
+                flag = true;
             }
         }
 
         return flag;
     }
-    public static boolean validationAboutYourSelf(Context context,EditText editText,View singUpBtn)
-    {
-        boolean b=false;
-        String fName=editText.getText().toString().trim();
-        if (fName.trim().length() < 80) {
-            Util. showOkErrorDialog(context.getString(R.string.about_self_error_msg),editText,singUpBtn);
 
-        }
-        else if (Util.checkStringsContainsOnlySpecialChar(fName)) {
-            Util.showOkErrorDialog(context.getString(R.string.about_self_only_special_msg),editText,singUpBtn);
-        }
-        else if (Util.isNumeric(fName)) {
-            Util. showOkErrorDialog(context.getString(R.string.about_self_only_numeric_msg),editText,singUpBtn);
-        }
-        else if (fName.trim().length() > 1000) {
-            Util. showOkErrorDialog(context.getString(R.string.about_self_error_msg_max),editText,singUpBtn);
-        }
-        else
-        {
-            b=true;
+    public static boolean validationAboutYourSelf(Context context, EditText editText, View singUpBtn) {
+        boolean b = false;
+        String fName = editText.getText().toString().trim();
+        if (fName.trim().length() < 80) {
+            Util.showOkErrorDialog(context.getString(R.string.about_self_error_msg), editText, singUpBtn);
+
+        } else if (Util.checkStringsContainsOnlySpecialChar(fName)) {
+            Util.showOkErrorDialog(context.getString(R.string.about_self_only_special_msg), editText, singUpBtn);
+        } else if (Util.isNumeric(fName)) {
+            Util.showOkErrorDialog(context.getString(R.string.about_self_only_numeric_msg), editText, singUpBtn);
+        } else if (fName.trim().length() > 1000) {
+            Util.showOkErrorDialog(context.getString(R.string.about_self_error_msg_max), editText, singUpBtn);
+        } else {
+            b = true;
         }
         return b;
     }
 
-    public static  SpannableStringBuilder setShareEndDate(String shareEndDate)
-    {
+    public static SpannableStringBuilder setShareEndDate(String shareEndDate) {
 
-        SpannableStringBuilder s=null;
-        try
-        {
-            Date date=new SimpleDateFormat(Constants.ShareEndDateFormat_create_send).parse(shareEndDate);
-            String newFormat = new SimpleDateFormat(Constants.ShareEndDateFormat_create_show).format(date.getTime()+TimeZone.getDefault().getRawOffset());
+        SpannableStringBuilder s = null;
+        try {
+            Date date = new SimpleDateFormat(Constants.ShareEndDateFormat_create_send).parse(shareEndDate);
+            String newFormat = new SimpleDateFormat(Constants.ShareEndDateFormat_create_show).format(date.getTime() + TimeZone.getDefault().getRawOffset());
             s = new SpannableStringBuilder(newFormat);
-            String[] shareEndDateArray=newFormat.split(",");
-            String first=shareEndDateArray[0];
-            s.setSpan (new CustomTypefaceSpan("", SpliroApp.getFontSemiBold()), 0, first.length()+1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            s.setSpan (new CustomTypefaceSpan("", SpliroApp.getFontLight()), first.length(), s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            String[] shareEndDateArray = newFormat.split(",");
+            String first = shareEndDateArray[0];
+            s.setSpan(new CustomTypefaceSpan("", SpliroApp.getFontSemiBold()), 0, first.length() + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            s.setSpan(new CustomTypefaceSpan("", SpliroApp.getFontLight()), first.length(), s.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return s;
 
     }
-    public static void logOutMethod(Context ctx,boolean setAnimation) {
+
+    public static void logOutMethod(Context ctx, boolean setAnimation) {
 
         Config.removeOrClearPerferance(null);
 //        dbhelHelper.clearDataBase();
         NotificationManager notificationManager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancelAll();
         Intent intent = new Intent(ctx.getApplicationContext(), HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         ctx.startActivity(intent);
         ((Activity) ctx).finish();
 
-        if(setAnimation)
-        {
+        if (setAnimation) {
             endActAnimation(((Activity) ctx));
         }
 
@@ -994,17 +953,14 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
 
     /**
      * download file from parse server to sdCard
-
-     *  @param imgUrl: file url for download file from parse server
-
+     *
+     * @param imgUrl: file url for download file from parse server
      */
-    public static String downloadFileUsingUrl(String imgUrl)
-    {
-        String[] imageUrl=imgUrl.split("/");
-        String filename=imageUrl[imageUrl.length-1];
+    public static String downloadFileUsingUrl(String imgUrl) {
+        String[] imageUrl = imgUrl.split("/");
+        String filename = imageUrl[imageUrl.length - 1];
         File SDCardRoot = checkAppFoledIsExist();
-        if(!SDCardRoot.exists())
-        {
+        if (!SDCardRoot.exists()) {
             SDCardRoot.mkdirs();
         }
         File file = new File(SDCardRoot, filename);
@@ -1021,40 +977,34 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
                 conn.setConnectTimeout(30000);
                 conn.setReadTimeout(30000);
                 inputStream = conn.getInputStream();
-                int sizeInBytes=conn.getContentLength();
-                filepath=SDCardRoot+"/"+filename;
-                File pdfFile=new File(filepath);
-                float lengthOfFileInMB=((float) Math.round((sizeInBytes / (1024 * 1024)) * 10) / 10);
-                if(lengthOfFileInMB<9)
-                {
+                int sizeInBytes = conn.getContentLength();
+                filepath = SDCardRoot + "/" + filename;
+                File pdfFile = new File(filepath);
+                float lengthOfFileInMB = ((float) Math.round((sizeInBytes / (1024 * 1024)) * 10) / 10);
+                if (lengthOfFileInMB < 9) {
                     writeFileUsingStream(inputStream, filename, SDCardRoot);
-                    if(pdfFile.exists()&&pdfFile.length()<sizeInBytes)
-                    {
-                        filepath=null;
+                    if (pdfFile.exists() && pdfFile.length() < sizeInBytes) {
+                        filepath = null;
                         pdfFile.delete();
                     }
                 }
-            } catch (MalformedURLException e)
-            {
+            } catch (MalformedURLException e) {
                 e.printStackTrace();
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
                 filepath = "";
                 e.printStackTrace();
             }
 
             Log.d("filepath:", " " + filepath);
-        }
-        else
-        {
-            filepath=SDCardRoot+"/"+filename;
+        } else {
+            filepath = SDCardRoot + "/" + filename;
         }
         return filepath;
 
     }
 
 
-    public static void writeFileUsingStream(InputStream inputStream,String filename, File SDCardRoot) throws IOException {
+    public static void writeFileUsingStream(InputStream inputStream, String filename, File SDCardRoot) throws IOException {
         // TODO Auto-generated method stub
         FileOutputStream fileOutput = null;
         File file = new File(SDCardRoot, filename);
@@ -1070,6 +1020,7 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
         fileOutput.close();
         inputStream.close();
     }
+
     public static void writeDBfileOnSdcard(Context context) {
         File f = new File(context.getDatabasePath(Constants.DB_NAME).getAbsolutePath());
         FileInputStream fis = null;
@@ -1077,9 +1028,8 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
 
         try {
             fis = new FileInputStream(f);
-            fos = new FileOutputStream(Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator+"spliro.sqlite");
-            while (true)
-            {
+            fos = new FileOutputStream(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "spliro.sqlite");
+            while (true) {
                 int i = fis.read();
                 if (i != -1) {
                     fos.write(i);
@@ -1089,14 +1039,10 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
             }
             fos.flush();
             Log.v("DB file Exported", "Success");
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             Log.v("DB file Exported", "Failed");
-        }
-        finally
-        {
+        } finally {
             try {
                 fos.close();
                 fis.close();
@@ -1105,9 +1051,8 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
         }
     }
 
-    public static String getGUID(String postGUID)
-    {
-        if(postGUID==null||postGUID.isEmpty()) {
+    public static String getGUID(String postGUID) {
+        if (postGUID == null || postGUID.isEmpty()) {
             postGUID = Config.deviceInfo.getDeviceId() + "-" + System.currentTimeMillis();
         }
         return postGUID;
@@ -1115,8 +1060,9 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
 
     /**
      * set first latter capital in given string.
-     * @param str   :pass any string of characters
-     **/
+     *
+     * @param str :pass any string of characters
+     */
     public static String setFirstLatterCap(String str) {
         String nameValue = "";
         if (str.trim().length() != 0) {
@@ -1134,67 +1080,61 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
 
     }
 
-    public static String uploadImageToServer(String imagePath,String imageName) {
-        NetworkResponse response= NetworkMgr.uploadImageToServer(Constants.UPLOAD_URL,imagePath,imageName);
-        try
-        {if(response!=null&&response.isSuccess())
-            imageName=response.getJsonObject().getJSONObject(Constants.FLD_KEY_DATA).getString(Constants.FLD_FILE_NAME);
-        } catch (JSONException e) {
+    public static String uploadImageToServer(String imagePath, String imageName) throws JSONException {
+        NetworkResponse response = NetworkMgr.uploadImageToServer(Constants.UPLOAD_URL, imagePath, imageName);
+        try {
+            if (response != null && response.isSuccess())
+                imageName = response.getJsonObject().getJSONObject(Constants.FLD_KEY_DATA).getString(Constants.FLD_FILE_NAME);
+        } catch (Exception e) {
             e.printStackTrace();
+            throw e;
+
         }
         return imageName;
     }
-    public static String getLocationDistance(double lat1,double long1,double lat2,double long2)
-    {
-        Location selected_location=new Location("locationA");
+
+    public static String getLocationDistance(double lat1, double long1, double lat2, double long2) {
+        Location selected_location = new Location("locationA");
         selected_location.setLatitude(lat1);
         selected_location.setLongitude(long1);
-        Location near_locations=new Location("locationB");
+        Location near_locations = new Location("locationB");
         near_locations.setLatitude(lat2);
         near_locations.setLongitude(long2);
-        double distance=(selected_location.distanceTo(near_locations))*0.000621371;
+        double distance = (selected_location.distanceTo(near_locations)) * 0.000621371;
         return formatTwoDecimalPlaces(distance);
     }
-    public static SpannableStringBuilder getSpannedString(String str,int textSize)
-    {
-        SpannableStringBuilder s=new SpannableStringBuilder(str);
-        s.setSpan (new CustomTypefaceSpan("", SpliroApp.getFontSemiBold()),0,str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        s.setSpan (new AbsoluteSizeSpan(textSize),0, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+    public static SpannableStringBuilder getSpannedString(String str, int textSize) {
+        SpannableStringBuilder s = new SpannableStringBuilder(str);
+        s.setSpan(new CustomTypefaceSpan("", SpliroApp.getFontSemiBold()), 0, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s.setSpan(new AbsoluteSizeSpan(textSize), 0, str.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         return s;
 
     }
-    public static SpannedString getTimeLeft(String endDate,String currentDate)
-    {
-        SpannedString spannedString=new SpannedString("0"+Constants.TIME_LEFT_TEXT);
-        try
-        {
-            Date oldDate=(Date)new SimpleDateFormat(Constants.ShareEndDateFormat_create_send).parse(currentDate);
-            Date newDate=(Date)new SimpleDateFormat(Constants.ShareEndDateFormat_create_send).parse(endDate);
-            if(oldDate.before(newDate))
-            {
+
+    public static SpannedString getTimeLeft(String endDate, String currentDate) {
+        SpannedString spannedString = new SpannedString("0" + Constants.TIME_LEFT_TEXT);
+        try {
+            Date oldDate = (Date) new SimpleDateFormat(Constants.ShareEndDateFormat_create_send).parse(currentDate);
+            Date newDate = (Date) new SimpleDateFormat(Constants.ShareEndDateFormat_create_send).parse(endDate);
+            if (oldDate.before(newDate)) {
                 long diff = newDate.getTime() - oldDate.getTime();
-                long minutes = diff /60000;
+                long minutes = diff / 60000;
                 long hoursleft = minutes / 60;
-                long minsLeft=minutes % 60;
-                Spannable hrs=(Spannable)getSpannedString(""+hoursleft,(int)Env.appContext.getResources().getDimension(R.dimen.spannable_txt_size));
-                Spannable mins=(Spannable)getSpannedString("" + minsLeft, (int) Env.appContext.getResources().getDimension(R.dimen.spannable_txt_size));
-                if(hoursleft>0)
-                {
-                    spannedString= (SpannedString)TextUtils.concat(hrs,"hr",mins,Constants.TIME_LEFT_TEXT);
+                long minsLeft = minutes % 60;
+                Spannable hrs = (Spannable) getSpannedString("" + hoursleft, (int) Env.appContext.getResources().getDimension(R.dimen.spannable_txt_size));
+                Spannable mins = (Spannable) getSpannedString("" + minsLeft, (int) Env.appContext.getResources().getDimension(R.dimen.spannable_txt_size));
+                if (hoursleft > 0) {
+                    spannedString = (SpannedString) TextUtils.concat(hrs, "hr", mins, Constants.TIME_LEFT_TEXT);
+                } else {
+                    spannedString = (SpannedString) TextUtils.concat(mins, Constants.TIME_LEFT_TEXT);
                 }
-                else
-                {
-                    spannedString= (SpannedString)TextUtils.concat(mins,Constants.TIME_LEFT_TEXT);
-                }
-            }
-            else
-            {
-                spannedString=(SpannedString)TextUtils.concat((Spannable)getSpannedString("0",(int) Env.appContext.getResources().getDimension(R.dimen.spannable_txt_size)),Constants.TIME_LEFT_TEXT);;
+            } else {
+                spannedString = (SpannedString) TextUtils.concat((Spannable) getSpannedString("0", (int) Env.appContext.getResources().getDimension(R.dimen.spannable_txt_size)), Constants.TIME_LEFT_TEXT);
+                ;
             }
 
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
 
             e.printStackTrace();
             Logger.error("Util", "getTimeLeft()+[" + e + "]");
@@ -1203,13 +1143,14 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
 
         return spannedString;
     }
-    public static boolean renameFile(String old_file_name,String old_file_path,String newfileName)
-    {
-        File fromFile=new File(old_file_path);
-        File toFile=new File(old_file_path.replace(old_file_name,newfileName));
-        return  fromFile.renameTo(toFile);
+
+    public static boolean renameFile(String old_file_name, String old_file_path, String newfileName) {
+        File fromFile = new File(old_file_path);
+        File toFile = new File(old_file_path.replace(old_file_name, newfileName));
+        return fromFile.renameTo(toFile);
 
     }
+
     public static void showCenteredToast(String msg) {
 
         Toast toast = Toast.makeText(Env.currentActivity, msg, Toast.LENGTH_SHORT);
@@ -1218,11 +1159,10 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
     }
 
     public static String[] cVForSelectedContactFromNative(String[] contactInformation) {
-        if (contactInformation[1].trim().length()<10) {
+        if (contactInformation[1].trim().length() < 10) {
             Util.showOkDialog(null, Env.currentActivity.getResources().getString(R.string.phone_num_error_msg));
             contactInformation = null;
-        }
-        else {
+        } else {
             String DisplayPNumber = Util.getOnlyPhoneNumber(contactInformation[1].replaceAll("\\D", ""));
             String display_name = contactInformation[0];
             if (display_name.isEmpty()) {
@@ -1245,20 +1185,19 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
                 contactInformation[1] = DisplayPNumber;
             }
         }
-    return contactInformation;
+        return contactInformation;
     }
 
-    public static File checkAppFoledIsExist()
-    {
+    public static File checkAppFoledIsExist() {
         File SDCardRoot = new File(Environment.getExternalStorageDirectory()
-                .getPath()+"/" + Constants.AppFolderName+File.separator+ Constants.createFolder);
-        if(!SDCardRoot.exists())
-        {
+                .getPath() + "/" + Constants.AppFolderName + File.separator + Constants.createFolder);
+        if (!SDCardRoot.exists()) {
             SDCardRoot.mkdirs();
         }
         return SDCardRoot;
     }
-    public static String getChangeDateFormat(String sendedDate,String oldPattern, String applyPattern, boolean retunrnWithTime) {
+
+    public static String getChangeDateFormat(String sendedDate, String oldPattern, String applyPattern, boolean retunrnWithTime) {
         String showingPate = "yyyy" + applyPattern + "MM" + applyPattern + "dd";
         String oldPat = "yyyy" + oldPattern + "MM" + oldPattern + "dd";
         if (sendedDate.contains(":")) {
@@ -1281,9 +1220,9 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
         }
         return sendedDate;
     }
-    public static String getCurrentTimeInUTC()
-    {
-        DateFormat df =new SimpleDateFormat(Constants.ShareEndDateFormat_create_send);
+
+    public static String getCurrentTimeInUTC() {
+        DateFormat df = new SimpleDateFormat(Constants.ShareEndDateFormat_create_send);
         df.setTimeZone(TimeZone.getTimeZone(Constants.UTC_TIMEZONE));
         String utc_time = df.format(new Date());
 
@@ -1291,30 +1230,28 @@ String imagePath=saveFileToFolder(ctx, scaledBitmap, 85);
     }
 
 
-    public static View setColorToShape(View  view,int colorCode)
-    {
-        GradientDrawable bgShape = (GradientDrawable)view.getBackground();
+    public static View setColorToShape(View view, int colorCode) {
+        GradientDrawable bgShape = (GradientDrawable) view.getBackground();
         bgShape.setColor(colorCode);
 
 
-return view;
+        return view;
     }
 
-    public static void deleteCreatePostRow(TableType tableName,CreateData createDataObj) {
+    public static void deleteCreatePostRow(TableType tableName, CreateData createDataObj) {
         DatabaseMgrSpliro.deleteTableRow(tableName, CreateData.FLD_POST_GUID + "=?", new String[]{createDataObj.post_guid});
     }
 
-    public static void loadImage( Context context,ImageView imgView, String url,int defaultResource)
-    {
-        if(url!=null) {
+    public static void loadImage(Context context, ImageView imgView, String url, int defaultResource) {
+        if (url != null&&!url.isEmpty()) {
             Picasso.with(context).load(url)
                     .fit()
                     .centerCrop().error(R.drawable.ic_launcher).fit().placeholder(R.drawable.ic_launcher).fit()
                     .into(imgView);
         }
     }
-    public static void loadImageFromSDcard(Context context,ImageView imgView,String imagePath,int defaultResource)
-    {
+
+    public static void loadImageFromSDcard(Context context, ImageView imgView, String imagePath, int defaultResource) {
         Picasso.with(context).load(new File(imagePath))
                 .fit()
                 .centerCrop().error(R.drawable.ic_launcher).fit().placeholder(defaultResource).fit()
@@ -1322,14 +1259,11 @@ return view;
 
     }
 
-    public static int[] getViewHeightWidth(final ImageView imgView)
-    {
-        final int arr[]=new int[2];
+    public static int[] getViewHeightWidth(final ImageView imgView) {
+        final int arr[] = new int[2];
         ViewTreeObserver vto = imgView.getViewTreeObserver();
-        vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener()
-        {
-            public boolean onPreDraw()
-            {
+        vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            public boolean onPreDraw() {
                 imgView.getViewTreeObserver().removeOnPreDrawListener(this);
                 arr[0] = imgView.getMeasuredWidth();
                 arr[1] = imgView.getMeasuredHeight();
@@ -1339,74 +1273,79 @@ return view;
         return arr;
 
     }
-    public static boolean isGoogleMapsInstalled(Context ctx)
-    {
-        try
-        {
-            ApplicationInfo info = ctx.getPackageManager().getApplicationInfo("com.google.android.apps.maps", 0 );
+
+    public static boolean isGoogleMapsInstalled(Context ctx) {
+        try {
+            ApplicationInfo info = ctx.getPackageManager().getApplicationInfo("com.google.android.apps.maps", 0);
             return true;
-        }
-        catch(PackageManager.NameNotFoundException e)
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
     }
-    public static void shareFacebookLink(Context ctx,String urlToShare)
-    {
-        try
-        {
-            String sharerUrl = "https://www.facebook.com/sharer/sharer.php?u="+ urlToShare;
+
+    public static void shareFacebookLink(Context ctx, String urlToShare) {
+        try {
+            String sharerUrl = "https://www.facebook.com/sharer/sharer.php?u=" + urlToShare;
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(sharerUrl));
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
             ctx.startActivity(Intent.createChooser(intent, "Share Link!"));
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             com.arya.lib.utils.Util.showCenteredToast(ctx, "No app available");
         }
     }
-    public static void shareTwitterLink(Context cntxt,String title,String link){
-        try{
 
-            String sharerUrl = "https://twitter.com/intent/tweet?text="+title+"&url"+ link;
+    public static void shareTwitterLink(Context cntxt, String title, String link) {
+        try {
+
+            String sharerUrl = "https://twitter.com/intent/tweet?text=" + title + "&url" + link;
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(sharerUrl));
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
             cntxt.startActivity(Intent.createChooser(intent, "Share Link!"));
 
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             com.arya.lib.utils.Util.showCenteredToast(cntxt, "No app available");
         }
     }
-    public static void shareGooglePlusLink(Context ctx,String urlToShare){
-        try
-        {
-            String sharerUrl = "https://plus.google.com/share?url="+ urlToShare;
+
+    public static void shareGooglePlusLink(Context ctx, String urlToShare) {
+        try {
+            String sharerUrl = "https://plus.google.com/share?url=" + urlToShare;
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(sharerUrl));
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
             ctx.startActivity(Intent.createChooser(intent, "Share Link!"));
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             com.arya.lib.utils.Util.showCenteredToast(ctx, "No app available");
         }
     }
-    public static void shareMailLink(Context ctx,String title, String link){
-        try{
+
+    public static void shareMailLink(Context ctx, String title, String link) {
+        try {
             Intent intent2 = new Intent();
             intent2.setAction(Intent.ACTION_SEND);
             intent2.setType("message/rfc822");
             intent2.putExtra(Intent.EXTRA_SUBJECT, title);
-            intent2.putExtra(Intent.EXTRA_TEXT, link );
+            intent2.putExtra(Intent.EXTRA_TEXT, link);
             ctx.startActivity(intent2);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             com.arya.lib.utils.Util.showCenteredToast(ctx, "No app available");
         }
+    }
+
+    public static String getExpirationTimeInUTC()
+    {
+        DateFormat df =new SimpleDateFormat(Constants.ShareEndDateFormat_create_send);
+        df.setTimeZone(TimeZone.getTimeZone(Constants.UTC_TIMEZONE));
+        Calendar c = Calendar.getInstance();
+        Date dt=new Date();
+        c.setTime(dt);
+        c.add(Calendar.DATE, 1);
+        dt = c.getTime();
+        String utc_time = df.format(dt);
+        return utc_time;
     }
 
 }

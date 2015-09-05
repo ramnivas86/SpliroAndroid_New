@@ -340,7 +340,7 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
     public void onClick(View view) {
         int vId = view.getId();
         if (vId == R.id.txtPreviewCP) {
-            Util.hideKeyBoardMethod(view.getContext(), view);
+            onClick(imgHideKeyBoard);
             saveCreatedCardToSavePref();
         } else if (vId == R.id.imgTitleInfo) {
             Util.showOkDialog(null, getResources().getString(R.string.title_info_msg));
@@ -642,14 +642,14 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
     public void setDataToAutoCOmpleteAdapter() {
 //    autoCompleteAdapter = new AutoCompleteAdapter(getActivity(), catArrayList);
 //    autoCompleteTxt.setAdapter(autoCompleteAdapter);
-        eTxtDummy.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                setDescriptionData();
-                Util.hideKeyBoardMethod(getActivity(), eTxtDummy);
-                return false;
-            }
-        });
+//        eTxtDummy.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+//                setDescriptionData();
+//                Util.hideKeyBoardMethod(getActivity(), eTxtDummy);
+//                return false;
+//            }
+//        });
         autoCompleteTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
@@ -879,8 +879,8 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
                 eTxtDummy.setText("");
                 txttotal_priceCreate.setText("");
                 createDataObj = new CreateData();
-                txtShareEndDate.setText(Util.setShareEndDate(Util.getCurrentTimeInUTC()));
-                createDataObj.post_expire_date = Util.getCurrentTimeInUTC();
+                txtShareEndDate.setText(Util.setShareEndDate(Util.getExpirationTimeInUTC()));
+                createDataObj.post_expire_date = Util.getExpirationTimeInUTC();
                 createDataObj.location_data = SpliroApp.defaultLocation;
                 address = createDataObj.location_data.address;
                 autoCompleteTxt.setText("");
