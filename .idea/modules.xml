@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SpliroAndroid.iml" filepath="$PROJECT_DIR$/SpliroAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpliroAndroid_New.iml" filepath="$PROJECT_DIR$/SpliroAndroid_New.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/aryalib/aryalib.iml" filepath="$PROJECT_DIR$/aryalib/aryalib.iml" />
       <module fileurl="file://$PROJECT_DIR$/facebookSDK/facebookSDK.iml" filepath="$PROJECT_DIR$/facebookSDK/facebookSDK.iml" />
