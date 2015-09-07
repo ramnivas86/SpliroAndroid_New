@@ -37,8 +37,8 @@ public class SpliroApp extends Application {
         fontRegular = Typeface.createFromAsset(getAssets(), "aileron_regular.ttf");
         Env.init(this,new SplrioDBHelper(),null,true);
 
-        try {
-
+        try
+        {
             databaseMgr= DatabaseMgr.getInstance();
             DatabaseMgrSpliro.init();
         } catch (InstantiationException e) {

@@ -88,9 +88,10 @@ public class TabActivity extends AbstractFragmentActivity {
             }
 
         }
-        else if(resultCode==Constants.RESULT_CODE_REFRESHMYSHARES)
+        else if(resultCode==Constants.RESULT_CODE_REFRESHMYSHARES&&data.hasExtra(Constants.CLOSED_STATUS))
         {
 //            fragmentArrayList.get(3).onActivityResult(requestCode, resultCode, data);
+
             ((MYSharesFragment)fragmentArrayList.get(3)).refresListView((CreateData)data.getSerializableExtra(Constants.CLOSED_STATUS));
         }
     }

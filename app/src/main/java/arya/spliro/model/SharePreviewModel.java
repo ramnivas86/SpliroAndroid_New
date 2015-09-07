@@ -31,9 +31,10 @@ import arya.spliro.utility.Util;
  */
 public class SharePreviewModel extends BasicModel {
     private Task saveCreatedShareTask;
-
-    public void changeShareStatus(CreateData createData) {
+    private Context mcontext;
+    public void changeShareStatus(Context mcontext,CreateData createData) {
         if (saveCreatedShareTask == null) {
+            this.mcontext=mcontext;
             saveCreatedShareTask = new Task();
             saveCreatedShareTask.execute(createData);
         }
@@ -65,14 +66,14 @@ public class SharePreviewModel extends BasicModel {
                     if (response != null && response.isSuccess() && response.getJsonObject().has(Constants.FLD_KEY_DATA)) {
                         delLocalRecord = true;
                     } else {
-                        createDataObj.errorMsg = createDataObj.ctx.getString(R.string.post_deleted_error);
+                        createDataObj.errorMsg = mcontext.getString(R.string.post_deleted_error);
                     }
                 } else {
                     delLocalRecord = true;
                 }
                 if (delLocalRecord) {
                     Util.deleteCreatePostRow(TableType.CreatePostTable, createDataObj);
-                    createDataObj.errorMsg = createDataObj.ctx.getString(R.string.post_deleted_successfully);
+                    createDataObj.errorMsg = mcontext.getString(R.string.post_deleted_successfully);
                 }
 
             }

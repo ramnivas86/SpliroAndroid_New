@@ -29,10 +29,13 @@ import arya.spliro.utility.Util;
 
 
 public class PreviewModel extends BasicModel {
+    private Context mcontext;
     private SaveCreatedShareTask saveCreatedShareTask;
 
-    public void createPostToServer(CreateData createData) {
+    public void createPostToServer(Context mcontext,CreateData createData) {
+
         if (saveCreatedShareTask == null) {
+            this.mcontext=mcontext;
             saveCreatedShareTask = new SaveCreatedShareTask();
             saveCreatedShareTask.execute(createData);
         }
@@ -53,7 +56,8 @@ public class PreviewModel extends BasicModel {
                         createDataObj = toCreatPostObject(createDataObj, response.getJsonObject());
                         saveDataToLocalDB(createDataObj);
                     } else {
-                        if (response != null) {
+                        if (response != null)
+                        {
                             createDataObj.errorMsg = response.getMessageFromServer();
                         }
                     }
@@ -65,7 +69,7 @@ public class PreviewModel extends BasicModel {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                createDataObj.errorMsg = createDataObj.ctx.getString(R.string.post_deleted_error);
+                createDataObj.errorMsg = mcontext.getString(R.string.post_deleted_error);
 
 
             }

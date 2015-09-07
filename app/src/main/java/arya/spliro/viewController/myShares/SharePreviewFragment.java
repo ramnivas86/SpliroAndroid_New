@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -20,12 +21,16 @@ import com.arya.lib.model.BasicModel;
 import com.arya.lib.view.AbstractFragment;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Observable;
 
 import arya.spliro.R;
+import arya.spliro.adapters.IntresterListAdpter;
 import arya.spliro.config.Config;
 import arya.spliro.dao.CreateData;
+import arya.spliro.dao.InviteeData;
 import arya.spliro.dao.LocationData;
+import arya.spliro.database.DatabaseMgrSpliro;
 import arya.spliro.model.SharePreviewModel;
 import arya.spliro.utility.Constants;
 import arya.spliro.utility.Util;
@@ -62,6 +67,8 @@ public class SharePreviewFragment extends AbstractFragment implements View.OnCli
     private RatingBar rtShareOwnerMSPreview;
     private LinearLayout llinvitedMSPreview;
     private LinearLayout llViewReceiptMSPreview;
+    private ListView inviteeListView;
+    public IntresterListAdpter inresterListAdapter;
     private SharePreviewModel sharePreviewModelObj = new SharePreviewModel();
     private Dialog dialog;
 
@@ -72,8 +79,10 @@ public class SharePreviewFragment extends AbstractFragment implements View.OnCli
         return rootView;
     }
 
-    private void init() {
-        if (getArguments().containsKey(Constants.KEY_FOR_PREVIEW_DATA)) {
+    private void init()
+    {
+        if (getArguments().containsKey(Constants.KEY_FOR_PREVIEW_DATA))
+        {
             createData = (CreateData) getArguments().getSerializable(Constants.KEY_FOR_PREVIEW_DATA);
         }
         txtSharesNameMSPreview = (TextView) rootView.findViewById(R.id.txtSharesNameMSPreview);
@@ -100,6 +109,7 @@ public class SharePreviewFragment extends AbstractFragment implements View.OnCli
         rtShareOwnerMSPreview = (RatingBar) rootView.findViewById(R.id.rtShareOwnerMSPreview);
         llinvitedMSPreview = (LinearLayout) rootView.findViewById(R.id.llinvitedMSPreview);
         llViewReceiptMSPreview = (LinearLayout) rootView.findViewById(R.id.llViewReceiptMSPreview);
+        inviteeListView = (ListView) rootView.findViewById(R.id.inviteeListView);
         setTypeFaceToAllFields();
         setDataToAllFields();
         btnBackAppMSPreview.setOnClickListener(this);
@@ -123,12 +133,16 @@ public class SharePreviewFragment extends AbstractFragment implements View.OnCli
                 btnLocationMSPreview.setText(createData.location_data.zipcode);
                 rtShareOwnerMSPreview.setRating(createData.rate);
                 txtDateMSPreview.setText(Util.setShareEndDate(createData.post_expire_date));
-                Util.loadImage(getActivity(), imgCreatorMSPreview, createData.profile_pic_url, 0);
+                Util.loadImage(getActivity(), imgCreatorMSPreview, createData.profile_pic_url,R.drawable.user);
                 txtNoOfPeopleJoinedMSPreview.setText(Util.getSpannedString("0", (int) getActivity().getResources().getDimension(R.dimen.txt_price_size_2)).append(Constants.PEOPLE_JOINED));
                 if (createData.user_id == Config.getUserId()) {
                     llinvitedMSPreview.setVisibility(View.GONE);
                     txtDistanceMSPreview.setVisibility(View.GONE);
                     txtDistanceMSPreview.setText(Util.getSpannedString("0", (int) getActivity().getResources().getDimension(R.dimen.txt_price_size_2)).append(Constants.DISTANCE_TEXT));
+                    inresterListAdapter=null;// 7/9/2015 phoosaram
+                    ArrayList<InviteeData>  list=DatabaseMgrSpliro.getInvteeList(createData.post_guid);
+                    inresterListAdapter=new IntresterListAdpter(getActivity(), list);
+                    inviteeListView.setAdapter(inresterListAdapter);
                 } else {
                     txtDistanceMSPreview.setVisibility(View.VISIBLE);
                     txtDistanceMSPreview.setText(Util.getSpannedString(Util.getLocationDistance(createData.location_data.location_latitude, createData.location_data.location_longitude, SpliroApp.defaultLocation.location_latitude, SpliroApp.defaultLocation.location_longitude), (int) getActivity().getResources().getDimension(R.dimen.spannable_txt_size)).append(Constants.DISTANCE_TEXT));
@@ -137,7 +151,7 @@ public class SharePreviewFragment extends AbstractFragment implements View.OnCli
                     cImgItemShareMSPreview.setTag(createData.categories_data.image_path);
                     Util.loadImageFromSDcard(getActivity(), cImgItemShareMSPreview, createData.categories_data.image_path, R.drawable.ic_launcher);
                 } else {
-                    Util.loadImage(getActivity(), cImgItemShareMSPreview, createData.categories_data.pic_thumb_url, 0);
+                    Util.loadImage(getActivity(), cImgItemShareMSPreview, createData.categories_data.pic_thumb_url, R.drawable.ic_launcher);
                 }
                 if (createData.status.equals(Constants.POSTING_STATUS)) {
                     txtRepostMSPreview.setVisibility(View.VISIBLE);
@@ -205,11 +219,11 @@ public class SharePreviewFragment extends AbstractFragment implements View.OnCli
         if (o instanceof CreateData) {
             CreateData createDataObj = (CreateData) o;
             if (createDataObj.status.equals(Constants.CLOSED_STATUS) && createDataObj.isSuccess) {
-                getActivity().setResult(Constants.RESULT_CODE_REFRESHMYSHARES, new Intent().putExtra(Constants.CLOSED_STATUS, this.createData));
+                getActivity().setResult(Constants.RESULT_CODE_REFRESHMYSHARES, new Intent().putExtra(Constants.CLOSED_STATUS, createDataObj));
                 getActivity().onBackPressed();
                 Util.showCenteredToast(getActivity().getString(R.string.post_closed_successfully));
             } else if (createDataObj.status.equals(Constants.DELETE_STATUS)) {
-                getActivity().setResult(Constants.RESULT_CODE_REFRESHMYSHARES, new Intent().putExtra(Constants.CLOSED_STATUS, this.createData));
+                getActivity().setResult(Constants.RESULT_CODE_REFRESHMYSHARES, new Intent().putExtra(Constants.CLOSED_STATUS, createDataObj));
                 getActivity().onBackPressed();
                 Util.showCenteredToast(createDataObj.errorMsg);
             } else {
@@ -260,8 +274,8 @@ public class SharePreviewFragment extends AbstractFragment implements View.OnCli
                         dialog.dismiss();
                         createData.status = Constants.CLOSED_STATUS;
                         Util.showProDialog(null);
-                        createData.ctx = getActivity();
-                        sharePreviewModelObj.changeShareStatus(createData);
+
+                        sharePreviewModelObj.changeShareStatus(getActivity(),createData);
                     }
                 }, null, null, null);
             } else if (createData.status.equals(Constants.CLOSED_STATUS) || createData.status.equals(Constants.SAVING_STATUS)) {
@@ -271,8 +285,8 @@ public class SharePreviewFragment extends AbstractFragment implements View.OnCli
                         dialog.dismiss();
                         Util.showProDialog(null);
                         createData.status = Constants.DELETE_STATUS;
-                        createData.ctx = getActivity();
-                        sharePreviewModelObj.changeShareStatus(createData);
+
+                        sharePreviewModelObj.changeShareStatus(getActivity(),createData);
                     }
                 }, null, null, null);
             }

@@ -36,6 +36,7 @@ public class CreateData implements Serializable {
     public static String KEY_SHARE_TOTAL_SHARE="total_share";
     public static String KEY_SHARE_TOTAL_SHARES_LEFT="total_shares_left";
     public static String KEY_SHARE_POST_EXPIRE_DATE="post_expire_date";
+    public static String KEY_SHARE_POST_CLOSE_DATE="post_close_date";
     public static String KEY_SHARE_INVOICE_PRICE="invoice_price";
     public static String KEY_SHARE_PER_SHARE_PRICE="per_share_price";
     public static String KEY_SHARE_INVOICE_IMAGE_NAME="invoice_image_name";
@@ -75,5 +76,5 @@ public class CreateData implements Serializable {
     public boolean isSuccess;
 
     public int no_people_joined;
-    public Context ctx;
+
 }

@@ -62,6 +62,7 @@ public class PreviewFragment extends AbstractFragment implements View.OnClickLis
     private RatingBar rtShareOwner;
     private LinearLayout llViewReceiptPreview;
     private ImageView cImgItemShareD;
+    private ImageView cImgShares;
     private TextView txtDistance;
     private TextView txtNoOfSharesPreview;
     private TextView txtLocationPreview;
@@ -95,6 +96,7 @@ public class PreviewFragment extends AbstractFragment implements View.OnClickLis
         rtShareOwner = (RatingBar) rootView.findViewById(R.id.rtShareOwner);
         llViewReceiptPreview = (LinearLayout) rootView.findViewById(R.id.llViewReceiptPreview);
         cImgItemShareD = (ImageView) rootView.findViewById(R.id.cImgItemShareD);
+        cImgShares = (ImageView) rootView.findViewById(R.id.cImgShares);
         txtDistance = (TextView) rootView.findViewById(R.id.txtDistance);
         txtNoOfSharesPreview = (TextView) rootView.findViewById(R.id.txtNoOfSharesPreview);
         txtLocationPreview = (TextView) rootView.findViewById(R.id.txtLocationPreview);
@@ -129,6 +131,10 @@ public class PreviewFragment extends AbstractFragment implements View.OnClickLis
             catImagPath = currentCreateData.categories_data.image_path;
             if (currentCreateData.categories_data.custom_image_path != null) {
                 catImagPath = currentCreateData.categories_data.custom_image_path;
+            }
+            if(currentCreateData.profile_pic_url!=null)
+            {
+                Util.loadImage(getActivity(),cImgShares,currentCreateData.profile_pic_url,R.drawable.user);
             }
 
             String hashTag = currentCreateData.categories_data.hashtag;
@@ -203,7 +209,7 @@ public class PreviewFragment extends AbstractFragment implements View.OnClickLis
     public void update(Observable observable, Object o) {
         if (o instanceof CreateData) {
             CreateData createDataObj = (CreateData) o;
-            if (createDataObj.status.equals(Constants.POSTING_STATUS) || createDataObj.status.equals(Constants.DELETE_STATUS) && createDataObj.errorMsg.isEmpty()) {
+            if ((createDataObj.status.equals(Constants.POSTING_STATUS) || createDataObj.status.equals(Constants.DELETE_STATUS)) && createDataObj.errorMsg.isEmpty()) {
                 resetCreateScreen = true;
                 Config.removeOrClearPerferance(Config.KEYCREATEMSGARRAY);
                 onClick(btnBackAPPHPreview);
@@ -228,7 +234,7 @@ public class PreviewFragment extends AbstractFragment implements View.OnClickLis
         if (vId == R.id.txtSavePreview) {
             Util.showProDialog(getActivity().getResources().getString(R.string.wait));
             currentCreateData.status = Constants.SAVING_STATUS;
-            model.createPostToServer(currentCreateData);
+            model.createPostToServer(getActivity(), currentCreateData);
         } else if (vId == R.id.txtDeletePreview) {
             dialog = Util.showYesNoMessageDialog(getActivity(), getString(R.string.do_you_want_to_delete), getString(R.string.app_name), new View.OnClickListener() {
                 @Override
@@ -236,14 +242,14 @@ public class PreviewFragment extends AbstractFragment implements View.OnClickLis
                     dialog.dismiss();
                     Util.showProDialog(null);
                     currentCreateData.status = Constants.DELETE_STATUS;
-                    model.createPostToServer(currentCreateData);
+                    model.createPostToServer(getActivity(), currentCreateData);
                 }
             }, null, null, null);
 
         } else if (vId == R.id.txtPostPreview) {
             Util.showProDialog(null);
             currentCreateData.status = Constants.POSTING_STATUS;
-            model.createPostToServer(currentCreateData);
+            model.createPostToServer(getActivity(), currentCreateData);
         } else if (vId == R.id.llViewReceiptPreview || vId == R.id.cImgItemShareD) {
 
             if (vId == R.id.cImgItemShareD && currentCreateData.categories_data != null) {

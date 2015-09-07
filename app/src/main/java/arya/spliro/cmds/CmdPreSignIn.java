@@ -24,7 +24,6 @@ public class CmdPreSignIn extends Cmd {
                 this.data.put(Constants.FLD_USER_TOKEN, Config.getUserToken());
                 this.data.put(Constants.FLD_USER_DEVICE_ID,  Config.getUserDeviceId());
             }
-
             this.data.put(Constants.FLD_LANG_CODE,  Config.getLangCode());
             this.data.put(Constants.FLD_SOURCE_APP, Constants.SOURCE_APP);
             this.data.put(DeviceInfo.FLD_SIM_SERIAL_NUMBER, Config.deviceInfo.getSimSerialNumber());

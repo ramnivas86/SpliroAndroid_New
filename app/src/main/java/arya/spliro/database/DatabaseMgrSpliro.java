@@ -118,7 +118,8 @@ public class DatabaseMgrSpliro {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (cursor != null) {
+            if (cursor != null)
+            {
                 cursor.close();
                 cursor = null;
             }
@@ -129,14 +130,20 @@ public class DatabaseMgrSpliro {
         Cursor cur = null;
         try {
             if(limit!=null)
-            cur = dbMgr.sqLiteDb.query(tableType.getTableName(), columns, selection,selectionArgs, groupBy, having, orderBy,limit);
+            {
+                cur = dbMgr.sqLiteDb.query(tableType.getTableName(), columns, selection,selectionArgs, groupBy, having, orderBy,limit);
+            }
             else
-            cur = dbMgr.sqLiteDb.query(tableType.getTableName(), columns, selection,selectionArgs, groupBy, having, orderBy);
+            {
+                cur = dbMgr.sqLiteDb.query(tableType.getTableName(), columns, selection,selectionArgs, groupBy, having, orderBy);
+            }
+
         } catch (Exception e) {
 
             e.printStackTrace();
 
-            if (cur != null && !cur.isClosed()) {
+            if (cur != null && !cur.isClosed())
+            {
                 cur.close();
             }
             cur = null;
@@ -163,6 +170,8 @@ public class DatabaseMgrSpliro {
                     values.put(CreateData.KEY_SHARE_POST_KEYWORDS, postDataObj.categories_data.keywords);
                     values.put(CreateData.KEY_SHARE_POST_LATITUDE, postDataObj.location_data.location_latitude);
                     values.put(CreateData.KEY_SHARE_POST_LONGITUDE, postDataObj.location_data.location_longitude);
+                    values.put(CreateData.KEY_SHARE_ADDRESS, postDataObj.location_data.address);
+                    values.put(CreateData.KEY_SHARE_ZIPCODE, postDataObj.location_data.zipcode);
                     values.put(CreateData.KEY_SHARE_PIC_NAME, postDataObj.categories_data.pic_name);
                     values.put(CreateData.KEY_SHARE_PIC_NAME_URL,postDataObj.categories_data.pic_url);
                     values.put(CreateData.KEY_SHARE_PIC_THUMB, postDataObj.categories_data.pic_thumb_name);
@@ -203,20 +212,37 @@ public class DatabaseMgrSpliro {
 
 
 
-    public static void insertDataToPostUserTable( CreateData createData)
+    public static void insertDataToPostUserTable(CreateData createData)// 7/9/2015 phoosaram
     {
-        if (createData != null &&createData.invitee_data!=null&& (!createData.invitee_data.isEmpty())) {
+        if (createData != null &&createData.invitee_data!=null&& (!createData.invitee_data.isEmpty()))
+        {
             try {
                 ContentValues[] contentValues = new ContentValues[createData.invitee_data.size()];
                 int index = 0;
-                for (InviteeData inviteeData : createData.invitee_data) {
+                for (InviteeData inviteeData : createData.invitee_data)
+                {
                     ContentValues values = new ContentValues();
                     values.put(InviteeData.FLD_POST_ID, createData.post_id);
                     values.put(InviteeData.FLD_POST_GUID, createData.post_guid);
                     values.put(InviteeData.FLD_DISPLAY_NAME,inviteeData.display_name );
                     values.put(InviteeData.FLD_POST_CONTACT_TYPE,inviteeData.post_contact_type );
                     values.put(InviteeData.FLD_POST_CONTACT_ID,inviteeData.post_contact_id );
+                    values.put(InviteeData.FLD_MIGRATED_USER_ID,inviteeData.migrated_user_id );
+                    values.put(InviteeData.FLD_CREATED_AT,inviteeData.created_at);
+                    values.put(InviteeData.FLD_IS_INVITED,inviteeData.is_invited);
+                    values.put(InviteeData.FLD_IS_FAVORITE,inviteeData.is_favorite);
+                    values.put(InviteeData.FLD_STATUS,inviteeData.status);
+                    values.put(InviteeData.FLD_POSTER_SHARE_STATUS,inviteeData.poster_share_status);
+                    values.put(InviteeData.FLD_OFFER_SHARES_REQUESTED,inviteeData.offer_shares_requested);
+                    values.put(InviteeData.FLD_OFFER_SHARES_APPROVED,inviteeData.offer_shares_approved);
+                    values.put(InviteeData.FLD_OFFER_USER_LATITUDE,inviteeData.offer_user_latitude);
+                    values.put(InviteeData.FLD_OFFER_USER_LONGITUD,inviteeData.offer_user_longitude);
+                    values.put(InviteeData.FLD_OFFER_REMARK,inviteeData.offer_remark);
+                    values.put(InviteeData.FLD_OFFER_PRICE,inviteeData.offer_price);
+                    values.put(InviteeData.FLD_UPDATED_AT,inviteeData.updated_at);
+                    values.put(InviteeData.FLD_PROFILE_PIC_URL, inviteeData.profile_pic_url);
                     values.put(CreateData.FLD_TRNO, inviteeData.trno);
+
                     contentValues[index] = values;
                     index++;
                 }
@@ -297,7 +323,7 @@ public class DatabaseMgrSpliro {
             createData.display_name=cursor.getString(cursor.getColumnIndex(CreateData.FLD_CREATOR_NAME));
             createData.rate=cursor.getFloat(cursor.getColumnIndex(CreateData.FLD_CREATOR_RATE));
             createData.profile_pic_url=cursor.getString(cursor.getColumnIndex(CreateData.FLD_PROFILE_PIC_URL));
-            createData.categories_data=new Categories();
+//            createData.categories_data=new Categories();
             createData.categories_data.description=cursor.getString(cursor.getColumnIndex(CreateData.KEY_SHARE_DESCRIPTION));
             createData.categories_data.catgory_id=cursor.getInt(cursor.getColumnIndex(CreateData.KEY_SHARE_CATEGORY_ID));
             createData.categories_data.name=cursor.getString(cursor.getColumnIndex(CreateData.KEY_SHARE_CATEGORY_NAME));
@@ -306,6 +332,8 @@ public class DatabaseMgrSpliro {
             createData.location_data=new LocationData();
             createData.location_data.location_latitude=cursor.getDouble(cursor.getColumnIndex(CreateData.KEY_SHARE_POST_LATITUDE));
             createData.location_data.location_longitude=cursor.getDouble(cursor.getColumnIndex(CreateData.KEY_SHARE_POST_LONGITUDE));
+            createData.location_data.address=cursor.getString(cursor.getColumnIndex(CreateData.KEY_SHARE_ADDRESS));
+            createData.location_data.zipcode=cursor.getString(cursor.getColumnIndex(CreateData.KEY_SHARE_ZIPCODE));
             createData.categories_data.pic_name=cursor.getString(cursor.getColumnIndex(CreateData.KEY_SHARE_PIC_NAME));
             createData.categories_data.pic_url=cursor.getString(cursor.getColumnIndex(CreateData.KEY_SHARE_PIC_NAME_URL));
             createData.categories_data.pic_thumb_name=cursor.getString(cursor.getColumnIndex(CreateData.KEY_SHARE_PIC_THUMB));
@@ -332,13 +360,14 @@ public class DatabaseMgrSpliro {
         return createData;
     }
 
-    private ArrayList<InviteeData> getInvteeList(String guid)
+    public static ArrayList<InviteeData> getInvteeList(String guid)// 7/9/2015 phoosaram
     {
         ArrayList<InviteeData> list=new ArrayList<InviteeData>();
         Cursor cursor=null;
         try
-        {
+        {   list.clear();
             cursor=queryTable(TableType.CreatePostDataUserTable, null, CreateData.FLD_POST_GUID + "=?", new String[]{guid}, null, null, null, null);
+            cursor.moveToFirst();
             if (cursor.getCount() > 0)
             {
                 while (!cursor.isAfterLast())
@@ -348,22 +377,26 @@ public class DatabaseMgrSpliro {
                 }
             }
 
-        }catch (Exception e)
+        }
+        catch (Exception e)
         {
             e.printStackTrace();
             if(Logger.IS_DEBUG)
             {
                 Logger.error(DatabaseMgr.TAG, "getInvteeList(): Exception [" + e + "] tableName [" +TableType.CreatePostDataUserTable+ "]");
             }
-        } finally {
-            if (cursor != null) {
+        }
+        finally
+        {
+            if (cursor != null)
+            {
                 cursor.close();
                 cursor = null;
             }
         }
         return list;
     }
-    private InviteeData getInviteeData(Cursor cursor)
+    private static InviteeData getInviteeData(Cursor cursor)// 7/9/2015 phoosaram
     {
         InviteeData inviteeData=null;
         try
@@ -371,8 +404,24 @@ public class DatabaseMgrSpliro {
             inviteeData=new InviteeData();
             inviteeData._id=cursor.getInt(cursor.getColumnIndex(InviteeData.FLD_ID));
             inviteeData.post_id=cursor.getInt(cursor.getColumnIndex(InviteeData.FLD_POST_ID));
-
-
+            inviteeData.post_guid=cursor.getString(cursor.getColumnIndex(InviteeData.FLD_POST_GUID));
+            inviteeData.post_contact_type=cursor.getString(cursor.getColumnIndex(InviteeData.FLD_POST_CONTACT_TYPE));
+            inviteeData.post_contact_id=cursor.getString(cursor.getColumnIndex(InviteeData.FLD_POST_CONTACT_ID));
+            inviteeData.migrated_user_id=cursor.getInt(cursor.getColumnIndex(InviteeData.FLD_MIGRATED_USER_ID));
+            inviteeData.created_at=cursor.getString(cursor.getColumnIndex(InviteeData.FLD_CREATED_AT));
+            inviteeData.display_name=cursor.getString(cursor.getColumnIndex(InviteeData.FLD_DISPLAY_NAME));
+            inviteeData.is_invited=cursor.getInt(cursor.getColumnIndex(InviteeData.FLD_IS_INVITED));
+            inviteeData.is_favorite=cursor.getInt(cursor.getColumnIndex(InviteeData.FLD_IS_FAVORITE));
+            inviteeData.status=cursor.getString(cursor.getColumnIndex(InviteeData.FLD_STATUS));
+            inviteeData.poster_share_status=cursor.getString(cursor.getColumnIndex(InviteeData.FLD_POSTER_SHARE_STATUS));
+            inviteeData.offer_shares_requested=cursor.getInt(cursor.getColumnIndex(InviteeData.FLD_OFFER_SHARES_REQUESTED));
+            inviteeData.offer_shares_approved=cursor.getInt(cursor.getColumnIndex(InviteeData.FLD_OFFER_SHARES_APPROVED));
+            inviteeData.offer_user_latitude=cursor.getDouble(cursor.getColumnIndex(InviteeData.FLD_OFFER_USER_LATITUDE));
+            inviteeData.offer_user_longitude=cursor.getDouble(cursor.getColumnIndex(InviteeData.FLD_OFFER_USER_LONGITUD));
+            inviteeData.offer_remark=cursor.getString(cursor.getColumnIndex(InviteeData.FLD_OFFER_REMARK));
+            inviteeData.offer_price=cursor.getDouble(cursor.getColumnIndex(InviteeData.FLD_OFFER_PRICE));
+            inviteeData.updated_at=cursor.getString(cursor.getColumnIndex(InviteeData.FLD_UPDATED_AT));
+            inviteeData.profile_pic_url=cursor.getString(cursor.getColumnIndex(InviteeData.FLD_PROFILE_PIC_URL));
         }catch (Exception e)
         {
             e.printStackTrace();
@@ -397,6 +446,7 @@ public class DatabaseMgrSpliro {
                 values.put(UserProfileData.FLD_PROFILE_PICTURE_NAME, userProfileData.profile_picture_name);
                 values.put(UserProfileData.FLD_PROFILE_PICTURE_URL, userProfileData.profile_picture_url);
                 values.put(UserProfileData.FLD_ADDRESS, userProfileData.address);
+                values.put(UserProfileData.FLD_ZIPCODE, userProfileData.zipcode);
                 values.put(UserProfileData.FLD_LOCATION_COUNTRY_CODE, userProfileData.location_country_code);
                 values.put(UserProfileData.FLD_LOCATION_LATITUDE, userProfileData.location_latitude);
                 values.put(UserProfileData.FLD_LOCATION_LONGITUDE, userProfileData.location_longitude);

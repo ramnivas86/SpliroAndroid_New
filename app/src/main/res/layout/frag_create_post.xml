@@ -50,6 +50,7 @@
             android:id="@+id/relDescreption"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             android:layout_below="@+id/relHeaderCP" >
         <arya.spliro.custom.CustomEditText
             android:id="@+id/eTxtDummy"
@@ -63,6 +64,7 @@
             android:textSize="@dimen/postTxtContainer_txt_size"
             android:autoLink="web"
             android:maxLength="1000"
+            android:layout_above="@+id/imgHideKeyBoard"
             android:textCursorDrawable="@null"
            />
         <ImageView
@@ -73,6 +75,7 @@
             android:layout_alignParentRight="true"
             android:contentDescription="@string/app_name"
             android:padding="10dp"
+
             android:src="@drawable/ic_keyboard" />
             </RelativeLayout>
 
@@ -326,16 +329,25 @@
                 <RelativeLayout
                     android:id="@+id/relDescrptionMain"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/share_end_container_height"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/btn_padding"
                     android:background="@color/postLocContainerBackG">
-
+                    <ImageView
+                        android:id="@+id/imgDescriptionInfo"
+                        android:layout_width="@dimen/info_img_h"
+                        android:layout_height="@dimen/info_img_h"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/selector_button_back"
+                        android:clickable="true"
+                        android:contentDescription="@string/app_name"
+                        android:padding="@dimen/btn_padding_5"
+                        android:src="@drawable/ic_info" />
                     <RelativeLayout
-                        android:id="@+id/imgDescCont"
+                        android:id="@+id/relD"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/imgDescriptionInfo"
-                        android:layout_above="@+id/txtDescrTitle">
+                       >
 
                         <TextView
                             android:id="@+id/txtDescription"
@@ -353,18 +365,16 @@
                             android:paddingBottom="@dimen/btn_padding"
                             android:textColor="@color/postTxtContainer_txt_color"
                             android:textSize="@dimen/postTxtContainer_txt_size"
-                            />
-
+                            android:visibility="gone"/>
                         <ImageView
                             android:id="@+id/imgDescription"
                             android:layout_width="@dimen/description_img_h"
                             android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
+                        android:layout_centerInParent="true"
                             android:clickable="false"
                             android:padding="@dimen/btn_padding"
                             android:src="@drawable/ic_description" />
                     </RelativeLayout>
-
 
                     <TextView
                         android:id="@+id/txtDescrTitle"
@@ -372,23 +382,11 @@
                         android:layout_height="@dimen/EditText_h"
                         android:background="@color/create_post_pinc"
                         android:gravity="center"
+                        android:layout_below="@+id/relD"
                         android:text="@string/description"
                         android:layout_alignParentBottom="true"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/postTxtContainer_txt_size" />
-
-
-                    <ImageView
-                        android:id="@+id/imgDescriptionInfo"
-                        android:layout_width="@dimen/info_img_h"
-                        android:layout_height="@dimen/info_img_h"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/selector_button_back"
-                        android:clickable="true"
-                        android:contentDescription="@string/app_name"
-                        android:padding="@dimen/btn_padding_5"
-                        android:src="@drawable/ic_info" />
-
                 </RelativeLayout>
 
                 <TextView

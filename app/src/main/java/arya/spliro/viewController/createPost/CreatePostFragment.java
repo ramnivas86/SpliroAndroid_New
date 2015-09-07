@@ -495,6 +495,9 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
         TabActivity.disabledScrolling(enableScroll);
         scrollViewCP.setVisibility(View.VISIBLE);
         if (eTxtDummy.getText().toString().trim().isEmpty()) {
+//            int h= (int) getActivity().getResources().getDimension(R.dimen.share_end_container_height);
+//            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, h);
+//            relDescrptionMain.setLayoutParams(layoutParams);
             txtDescription.setText(eTxtDummy.getText().toString());
             txtDescription.setVisibility(View.GONE);
             imgDescription.setVisibility(View.VISIBLE);
@@ -502,8 +505,12 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
                 createDataObj.categories_data.description = "";
             }
         } else {
+//            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//            relDescrptionMain.setLayoutParams(layoutParams);
+
             txtDescription.setVisibility(View.VISIBLE);
             imgDescription.setVisibility(View.GONE);
+            txtDescription.setMinLines(Constants.NINE_LINES_TO_SHOW);
             txtDescription.setText(eTxtDummy.getText().toString().trim());
             txtDescription.setGravity(Gravity.CENTER);
             if (createDataObj.categories_data != null) {
@@ -733,7 +740,8 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
         }
     }
 
-    private void setDataToTitleAndHashTagAndImagIfEmpty() {
+    private void setDataToTitleAndHashTagAndImagIfEmpty()
+    {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         imgUploadCP.setLayoutParams(layoutParams);
         imgUploadCP.setImageDrawable(getResources().getDrawable(R.drawable.ic_uploadimg));
@@ -746,7 +754,8 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
         }
     }
 
-    public void saveCreatedCardToSavePref() {
+    public void saveCreatedCardToSavePref()
+    {
         String titleName = autoCompleteTxt.getText().toString().trim();
         String imagPath = ((String) imgUploadCP.getTag());
         String hashTag = eTxtHashTag.getText().toString().trim();
@@ -766,21 +775,20 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
 //    inviteeCount="0";
 //}
 
-            if (titleName.isEmpty()) {
-                Util.showOkDialog(null, getActivity().getResources().getString(R.string.title_error_msg));
-            } else if (changeLocation.isEmpty()) {
-                Util.showOkDialog(null, getActivity().getResources().getString(R.string.change_location_error_msg));
-            } else if (hashTag.isEmpty()) {
-                Util.showOkDialog(null, getActivity().getResources().getString(R.string.hash_tag_error_msg));
-            } else if (hashTag.isEmpty()) {
-                Util.showOkDialog(null, getActivity().getResources().getString(R.string.hash_tag_error_msg));
-            } else if (description.isEmpty()) {
-                Util.showOkDialog(null, getActivity().getResources().getString(R.string.description_error_msg));
-            }
-            else {
-                PreviewFragment fragment = PreviewFragment.getInstance(setDataToCreateDataObject(titleName, imagPath, hashTag, description, numberOfShares, shareEndDate, inviteeSize, total_price));
-                ft = Util.addFragments(fm, fragment);
-            }
+        if (titleName.isEmpty()) {
+            Util.showOkDialog(null, getActivity().getResources().getString(R.string.title_error_msg));
+        } else if (changeLocation.isEmpty()) {
+            Util.showOkDialog(null, getActivity().getResources().getString(R.string.change_location_error_msg));
+        } else if (hashTag.isEmpty()) {
+            Util.showOkDialog(null, getActivity().getResources().getString(R.string.hash_tag_error_msg));
+        } else if (hashTag.isEmpty()) {
+            Util.showOkDialog(null, getActivity().getResources().getString(R.string.hash_tag_error_msg));
+        } else if (description.isEmpty()) {
+            Util.showOkDialog(null, getActivity().getResources().getString(R.string.description_error_msg));
+        } else {
+            PreviewFragment fragment = PreviewFragment.getInstance(setDataToCreateDataObject(titleName, imagPath, hashTag, description, numberOfShares, shareEndDate, inviteeSize, total_price));
+            ft = Util.addFragments(fm, fragment);
+        }
 
     }
 
@@ -801,9 +809,12 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
             createDataObj.categories_data = catListData;
         } else {
             createDataObj.categories_data.custom_image_path = null;
-            if (imagePath != null && imagePath.contains(Constants.profileImge)) {
+            if (imagePath != null && imagePath.contains(Constants.profileImge))
+            {
                 createDataObj.categories_data.custom_image_path = imagePath;
-            } else {
+            }
+            else
+            {
                 createDataObj.categories_data.image_path = imagePath;
             }
 
@@ -818,6 +829,7 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
         createDataObj.per_share_price = this.perSharePrice;
         createDataObj.display_name = Config.getUserDispalyName();
         createDataObj.user_id = Config.getUserId();
+        createDataObj.profile_pic_url = Config.getUserImageUrl();
 
         ArrayList<CreateData> createDataArrayList = new ArrayList<CreateData>();
         createDataArrayList.add(createDataObj);
@@ -856,9 +868,12 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
                     createDataObj.invitee_data = new ArrayList<InviteeData>();
                 }
                 setDataToInvitees(createDataObj.invitee_data);
-                if (createDataObj.location_data != null && !createDataObj.location_data.address.isEmpty()) {
+                if (createDataObj.location_data != null && !createDataObj.location_data.address.isEmpty())
+                {
                     address = createDataObj.location_data.address;
-                } else {
+                }
+                else
+                {
                     address = SpliroApp.defaultLocation.address;
                     createDataObj.location_data = SpliroApp.defaultLocation;
                 }
@@ -866,7 +881,8 @@ public class CreatePostFragment extends AbstractFragment implements View.OnClick
                 setDataToPrice(createDataObj.invoice_price, createDataObj.receipt_image_path);
                 txtShareEndDate.setText(Util.setShareEndDate(createDataObj.post_expire_date));
                 setDescriptionData();
-                if (createDataObj.status.equals(Constants.CLOSED_STATUS)) {
+                if (createDataObj.status.equals(Constants.CLOSED_STATUS))
+                {
                     createDataObj.post_guid = null;
                     createDataObj.post_id = 0;
                 }

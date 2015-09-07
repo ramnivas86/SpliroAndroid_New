@@ -366,37 +366,16 @@
                 </LinearLayout>
 
                 <RelativeLayout
-                    android:id="@+id/descreptionContainer"
+                    android:id="@+id/inviteeListContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/btn_padding"
-                    android:background="@color/postLocContainerBackG"
-                    android:visibility="gone">
-
-                    <RelativeLayout
-                        android:id="@+id/imgDescCont"
+                    android:background="@color/postLocContainerBackG">
+                    <ListView
+                        android:id="@+id/inviteeListView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"                        >
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:clickable="true"
-                            android:padding="@dimen/btn_padding_20"
-                            android:src="@drawable/spl_ic_send_message" />
-                    </RelativeLayout>
-
-
-                    <TextView
-                        android:id="@+id/txtDescr"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/header_height"
-                        android:layout_below="@+id/imgDescCont"
-                        android:background="@color/create_post_pinc"
-                        android:gravity="center"
-                        android:text="@string/send_a_message"
-                        android:textColor="@android:color/white"
-                        android:textSize="@dimen/postTxtContainer_txt_size" />
+                        android:layout_height="wrap_content">
+                    </ListView>
                 </RelativeLayout>
 <RelativeLayout
     android:layout_width="match_parent"

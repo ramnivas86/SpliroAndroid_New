@@ -61,6 +61,7 @@ public class SplrioDBHelper implements DBHelper{
                 + Categories.KEY_CREATED_AT + " DATETIME,"
                 + Categories.KEY_UPDATED_AT + " DATETIME);");
         db.execSQL("CREATE INDEX category_trno_index on "+TableType.CategoryTable.getTableName()+"(trno);");
+        db.execSQL("CREATE INDEX category_keyowrds_index on "+TableType.CategoryTable.getTableName()+"("+Categories.KEY_KEYWORDS+","+Categories.KEY_HASHTAG+");");
     }
     private void createPostDataTable(SQLiteDatabase db)
     {
@@ -79,6 +80,8 @@ public class SplrioDBHelper implements DBHelper{
                 + CreateData.KEY_SHARE_POST_KEYWORDS + " TEXT,"
                 + CreateData.KEY_SHARE_POST_LATITUDE + " NUMERIC(10,6),"
                 + CreateData.KEY_SHARE_POST_LONGITUDE  + " NUMERIC(10,6),"
+                + CreateData.KEY_SHARE_ADDRESS  + " TEXT,"
+                + CreateData.KEY_SHARE_ZIPCODE  + " TEXT,"
                 + CreateData.KEY_SHARE_PIC_NAME  + " TEXT,"
                 + CreateData.KEY_SHARE_PIC_NAME_URL  + " TEXT,"
                 + CreateData.KEY_SHARE_PIC_THUMB  + " TEXT,"
@@ -86,6 +89,7 @@ public class SplrioDBHelper implements DBHelper{
                 + CreateData.KEY_SHARE_TOTAL_SHARE + " INTEGER,"
                 + CreateData.KEY_SHARE_TOTAL_SHARES_LEFT + " INTEGER,"
                 + CreateData.KEY_SHARE_POST_EXPIRE_DATE + " DATETIME,"
+                + CreateData.KEY_SHARE_POST_CLOSE_DATE + " DATETIME,"
                 + CreateData.KEY_SHARE_INVOICE_PRICE + " NUMERIC(11,2),"
                 + CreateData.KEY_SHARE_PER_SHARE_PRICE + " NUMERIC(11,2),"
                 + CreateData.KEY_SHARE_INVOICE_IMAGE_NAME + " TEXT,"
@@ -107,10 +111,13 @@ public class SplrioDBHelper implements DBHelper{
                 + InviteeData.FLD_POST_GUID + " TEXT,"
                 + InviteeData.FLD_POST_CONTACT_TYPE + " TEXT,"
                 + InviteeData.FLD_POST_CONTACT_ID + " TEXT,"
+                + InviteeData.FLD_MIGRATED_USER_ID + " INTEGER,"
                 + InviteeData.FLD_CREATED_AT + " DATETIME,"
+                + InviteeData.FLD_DISPLAY_NAME + " TEXT,"
                 + InviteeData.FLD_IS_INVITED + " INTEGER,"
                 + InviteeData.FLD_IS_FAVORITE + " INTEGER,"
                 + InviteeData.FLD_STATUS + " TEXT,"
+                + InviteeData.FLD_POSTER_SHARE_STATUS + " TEXT,"
                 + InviteeData.FLD_OFFER_SHARES_REQUESTED + " INTEGER,"
                 + InviteeData.FLD_OFFER_SHARES_APPROVED + " INTEGER,"
                 + InviteeData.FLD_OFFER_USER_LATITUDE + " NUMERIC(10,6),"
@@ -118,6 +125,7 @@ public class SplrioDBHelper implements DBHelper{
                 + InviteeData.FLD_OFFER_REMARK + " TEXT,"
                 + InviteeData.FLD_OFFER_PRICE + " NUMERIC(11,2),"
                 + InviteeData.FLD_UPDATED_AT + " DATETIME,"
+                + InviteeData.FLD_PROFILE_PIC_URL + " TEXT,"
                 + InviteeData.FLD_TRNO + " LONG);");
         db.execSQL("CREATE INDEX post_data_trno_idx1 on "+TableType.CreatePostDataUserTable.getTableName()+"(trno);");
         db.execSQL("CREATE INDEX post_data_post_idx2 on "+TableType.CreatePostDataUserTable.getTableName()+"("+InviteeData.FLD_POST_ID+","+InviteeData.FLD_POST_CONTACT_TYPE+","+InviteeData.FLD_POST_CONTACT_ID+");");
@@ -136,11 +144,12 @@ public class SplrioDBHelper implements DBHelper{
                 + UserProfileData.FLD_PROFILE_PICTURE_NAME + " TEXT,"
                 + UserProfileData.FLD_PROFILE_PICTURE_URL + " TEXT,"
                 + UserProfileData.FLD_ADDRESS + " TEXT,"
+                + UserProfileData.FLD_ZIPCODE + " TEXT,"
                 + UserProfileData.FLD_LOCATION_COUNTRY_CODE + " TEXT,"
                 + UserProfileData.FLD_LOCATION_LATITUDE + " NUMERIC(10,6),"
                 + UserProfileData.FLD_LOCATION_LONGITUDE + " NUMERIC(10,6),"
                 + UserProfileData.FLD_TIMEZONE + " TEXT,"
-                + UserProfileData.FLD_RATE + " INTEGER,"
+                + UserProfileData.FLD_RATE + " NUMERIC,"
                 + UserProfileData.FLD_STATUS + " TEXT,"
                 + UserProfileData.FLD_CREATED_AT + " DATETIME,"
                 + UserProfileData.FLD_SELECTED_CATEGORY + " TEXT,"

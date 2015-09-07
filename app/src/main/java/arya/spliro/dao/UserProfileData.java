@@ -19,6 +19,7 @@ public class UserProfileData implements Serializable
     public static String FLD_PROFILE_PICTURE_NAME ="profile_picture_name" ;
     public static String FLD_PROFILE_PICTURE_URL ="profile_picture_url" ;
     public static String FLD_ADDRESS="address";
+    public static String FLD_ZIPCODE="zipcode";
     public static String FLD_LOCATION_COUNTRY_CODE="location_country_code";
     public static String FLD_LOCATION_LATITUDE="location_latitude";
     public static String FLD_LOCATION_LONGITUDE="location_longitude";
@@ -40,7 +41,8 @@ public class UserProfileData implements Serializable
     public String about_me;
     public String profile_picture_name;
     public String profile_picture_url;
-    public String address;
+    public String address="";
+    public String zipcode="";
     public String location_country_code;
     public double location_latitude;
     public double location_longitude;

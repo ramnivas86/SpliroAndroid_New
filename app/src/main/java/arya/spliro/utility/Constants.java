@@ -45,7 +45,7 @@ public class Constants {
     public static String ApiFOrCheckNumberIsExist="https://data.searchbug.com/api/search.aspx?CO_CODE=85845&PASS=onlyone1&TYPE=api_loc&F=";
     public static String Const_PhoneNumber="PhoneNumber";
     public static String Const_CELLULAR="CELLULAR";
-    public static String COUNTRYCODE ="1";
+    public static String COUNTRYCODE ="91";
     public static final int MINIMUMLENGTHOFNAME = 1;
     public static final int MAXLENGTHOFLASTNAME =12 ;
     public static final int MAXLENGTHOFPHONENUMBER = 10;
@@ -113,6 +113,7 @@ public class Constants {
     public static double MAX_PRICE_VALUE=99999;
     public static String PER_SHARE=" each";//22/8/2015 phoosaram
     public static final int MIN_LINES_TO_SHOW=4;//22/8/2015 phoosaram
+    public static final int NINE_LINES_TO_SHOW=9;//
     public static final int MAX_LINES_TO_SHOW=1000;//22/8/2015 phoosaram
     public static String OTHER="other";
     public static final String DB_NAME="spliro";

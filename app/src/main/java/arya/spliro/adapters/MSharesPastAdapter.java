@@ -86,7 +86,7 @@ public class MSharesPastAdapter extends BaseAdapter{
         }
         setTypeFaceToAllFields(holder);
         CreateData data=shares_List.get(position);
-        Util.loadImage(mcontext,holder.imgCreatorMyShares,data.profile_pic_url,0);
+        Util.loadImage(mcontext,holder.imgCreatorMyShares,data.profile_pic_url,R.drawable.user);
         holder.txtTitleMyshares.setText(data.title);
         holder.txtSharesName.setText(data.display_name);
         holder.rtShareOwner.setRating(data.rate);
@@ -138,7 +138,7 @@ public class MSharesPastAdapter extends BaseAdapter{
         }
         else
         {
-            Util.loadImage(mcontext,holder.cImgItemShare,data.categories_data.pic_thumb_url,0);
+            Util.loadImage(mcontext,holder.cImgItemShare,data.categories_data.pic_thumb_url,R.drawable.ic_launcher);
         }
         return convertView;
     }

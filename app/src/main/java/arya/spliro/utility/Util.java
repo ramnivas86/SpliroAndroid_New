@@ -656,7 +656,6 @@ public class Util {
         ft1.replace(resource, frg);
         if (addToBackStack)
             ft1.addToBackStack(null);
-
         ft1.commit();
         return ft1;
     }
@@ -1131,7 +1130,6 @@ public class Util {
                 }
             } else {
                 spannedString = (SpannedString) TextUtils.concat((Spannable) getSpannedString("0", (int) Env.appContext.getResources().getDimension(R.dimen.spannable_txt_size)), Constants.TIME_LEFT_TEXT);
-                ;
             }
 
         } catch (Exception e) {
@@ -1148,16 +1146,13 @@ public class Util {
         File fromFile = new File(old_file_path);
         File toFile = new File(old_file_path.replace(old_file_name, newfileName));
         return fromFile.renameTo(toFile);
-
     }
-
     public static void showCenteredToast(String msg) {
 
         Toast toast = Toast.makeText(Env.currentActivity, msg, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
-
     public static String[] cVForSelectedContactFromNative(String[] contactInformation) {
         if (contactInformation[1].trim().length() < 10) {
             Util.showOkDialog(null, Env.currentActivity.getResources().getString(R.string.phone_num_error_msg));
@@ -1246,7 +1241,7 @@ public class Util {
         if (url != null&&!url.isEmpty()) {
             Picasso.with(context).load(url)
                     .fit()
-                    .centerCrop().error(R.drawable.ic_launcher).fit().placeholder(R.drawable.ic_launcher).fit()
+                    .centerCrop().error(defaultResource).fit().placeholder(defaultResource).fit()
                     .into(imgView);
         }
     }

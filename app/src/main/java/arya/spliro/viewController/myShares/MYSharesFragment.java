@@ -38,11 +38,10 @@ public class MYSharesFragment extends AbstractFragment implements View.OnClickLi
     private Button btnSaved;
     private ListView listViewMyShare;
     private ArrayList<CreateData> sharesList;
-    MSharesPastAdapter adapter;
-    View rootView;
+    private MSharesPastAdapter adapter;
+    private View rootView;
     private String selectedTabName;
-int clickedPosition;
-
+    private int clickedPosition;
     @Override
     protected View onCreateViewPost(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView =inflater.inflate(R.layout.frg_my_share,container,false);
@@ -54,7 +53,6 @@ int clickedPosition;
     protected BasicModel getModel() {
         return myShareModel;
     }
-
     private void init() {
         imgRightMS = (ImageView) rootView.findViewById(R.id.imgRightMS);
         imgSearchMS = (ImageView) rootView.findViewById(R.id.imgSearchMS);
@@ -91,10 +89,8 @@ int clickedPosition;
         if (vId == R.id.imgRightMS) {
 
         } else if (vId == R.id.imgSearchMS) {
-
-        } else if (vId == R.id.btnBackAppHMS) {
-
-        } else if (vId == R.id.btnPast) {
+                Util.addFragment(getActivity().getSupportFragmentManager(),new MyShareSearchFragment(),R.id.createFrameContainer,false);
+        }  else if (vId == R.id.btnPast) {
             setSelectedTab(btnPast);
         } else if (vId == R.id.btnCurrent) {
             setSelectedTab(btnCurrent);

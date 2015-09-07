@@ -23,7 +23,7 @@ public class LocationData implements Serializable{
     public double location_latitude;
     public double location_longitude;
     public String address="";
-    public String zipcode;
+    public String zipcode="";
     public String is_deleted;
     public String is_default="0";
     public String city;

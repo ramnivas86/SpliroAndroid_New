@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_backGroundColor"
+    android:padding="@dimen/root_margin_10dp">
+
+    <RelativeLayout
+        android:id="@+id/relAppHS"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height"
+        android:background="@color/app_backGroundColor"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/imgBackAppHS"
+            android:layout_width="@dimen/header_height"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_button_back"
+            android:clickable="true"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/btn_padding"
+            android:src="@drawable/spl_ic_back_w_l" />
+
+        <TextView
+            android:id="@+id/txtTitleAppHS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/Search"
+            android:layout_margin="@dimen/btn_padding_5"
+            android:textColor="@android:color/white"
+            android:layout_centerInParent="true"
+
+            android:gravity="center"
+            android:textSize="@dimen/t_headertextsize" />
+
+        <Button
+            android:id="@+id/btnLocationS"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/selector_button_back"
+            android:clickable="true"
+            android:drawableLeft="@drawable/spl_ic_head_location"
+            android:padding="@dimen/btn_padding"
+            android:text="123456"
+            android:textColor="@color/postLocContainerBackG" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relAppHS"
+        android:layout_above="@+id/rl_apply"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/rl_search_bar_hight"
+            android:background="@android:color/white">
+
+            <EditText
+                android:id="@+id/eTexSearch"
+                style="@style/font_login_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:hint="@string/Search"
+                android:inputType="textEmailAddress"
+                android:padding="@dimen/eTextLEmail_padding"
+                android:textColor="@color/eTxtColor"
+                android:singleLine="true"
+                android:layout_toLeftOf="@+id/imgClearSearch" />
+
+            <ImageView
+                android:id="@+id/imgClearSearch"
+                android:layout_width="@dimen/rl_search_bar_hight"
+                android:layout_height="@dimen/rl_search_bar_hight"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/spl_ic_remove"
+                android:padding="@dimen/img_remove_padding" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ll_margin_10dp"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/seakbar_mile_location_hight"
+                android:layout_marginRight="@dimen/rl_margin_seakbar"
+                android:layout_marginLeft="@dimen/rl_margin_seakbar">
+
+                <SeekBar
+                    android:id="@+id/seekLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/seakbar_hight"
+                    android:progressDrawable="@drawable/bg_seek_bar_progress"
+                    android:layout_centerInParent="true"
+                    android:thumb="@drawable/ic_location_rang"
+                    android:indeterminate="false" />
+
+                <TextView
+                    android:id="@+id/txtSeekMin"
+                    android:layout_below="@+id/seekLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/peach_color"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="@dimen/seakbar_txt_size" />
+
+                <TextView
+                    android:id="@+id/txtSeekMax"
+                    android:layout_below="@+id/seekLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/peach_color"
+                    android:textSize="@dimen/seakbar_txt_size" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtSeekTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/txt_mile_location"
+                android:background="@color/peach_color"
+                android:textColor="@android:color/white"
+                android:text="@string/app_name"
+                android:gravity="center"
+                android:textSize="@dimen/txt_size_16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:background="@drawable/rectangle_cornor"
+            android:layout_margin="@dimen/ll_margin_10dp">
+
+            <TextView
+                android:id="@+id/txtCatTab"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="categories"
+                android:gravity="center"
+                android:textSize="@dimen/seakbar_txt_size"
+                android:textColor="@android:color/white"
+                android:background="@drawable/rect_selector"
+                android:layout_height="@dimen/ll_cat_hight" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/peach_color" />
+
+            <TextView
+                android:id="@+id/txtDisplayNameTab"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="display name"
+                android:gravity="center"
+                android:textSize="@dimen/seakbar_txt_size"
+                android:textColor="@android:color/white"
+                android:background="@drawable/rect_selector"
+                android:layout_height="@dimen/ll_cat_hight" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_dark"
+            android:layout_marginBottom="@dimen/ll_margin_10dp" />
+
+        <ListView
+            android:id="@+id/lvS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="@dimen/rl_apply_cancel_padding"
+        android:paddingRight="@dimen/rl_apply_cancel_padding"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtApplyS"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/component_hight"
+            android:text="@string/apply"
+            android:gravity="center"
+            android:textSize="@dimen/text_apply_cancel_size"
+            android:textColor="@drawable/text_pink_selector" />
+    </RelativeLayout>
+</RelativeLayout>
